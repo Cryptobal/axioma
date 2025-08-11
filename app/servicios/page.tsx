@@ -6,6 +6,7 @@ import Script from 'next/script'
 import Link from 'next/link'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Brain, Boxes, Cable, ClipboardList, Wrench } from 'lucide-react'
+import { SectionNav } from '@/components/section-nav'
 
 export const metadata: Metadata = {
   title: 'Servicios de automatización y software a medida con IA',
@@ -54,7 +55,17 @@ export default function Page() {
       <PageHeader title="Servicios de automatización y software a medida con IA" subtitle="Somos un equipo senior en producto, datos y automatización. Construimos software que reduce costos, acelera reporting y habilita escalado. Trabajamos con organizaciones de alto desempeño en múltiples industrias." />
       <p className="text-zinc-400 mt-2 max-w-3xl">Clientes refieren mejoras de 20–40% en KPIs operativos durante los primeros 90 días. Solicita un diagnóstico sin costo.</p>
 
-      <section className="mt-10">
+      <div className="grid md:grid-cols-[240px,1fr] gap-8 mt-6">
+        <SectionNav items={[
+          { id: 'que-resolvemos', label: 'Qué resolvemos' },
+          { id: 'servicios', label: 'Servicios' },
+          { id: 'como-trabajamos', label: 'Cómo trabajamos' },
+          { id: 'stack', label: 'Stack' },
+          { id: 'precios', label: 'Precios' },
+          { id: 'faq', label: 'FAQ' },
+        ]} />
+        <div>
+      <section id="que-resolvemos" className="mt-4">
         <h2 className="text-xl font-semibold tracking-tight">Qué resolvemos</h2>
         <div className="grid md:grid-cols-3 gap-4 mt-4">
           {painPoints.map((p) => (
@@ -68,7 +79,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="mt-12">
+      <section id="servicios" className="mt-12">
         <h2 className="text-xl font-semibold tracking-tight">Nuestros servicios</h2>
         <div className="grid md:grid-cols-3 gap-4 mt-4">
           {services.map((s) => (
@@ -85,7 +96,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="mt-12">
+      <section id="como-trabajamos" className="mt-12">
         <h2 className="text-xl font-semibold tracking-tight">Cómo trabajamos</h2>
         <ol className="grid md:grid-cols-5 gap-4 mt-4">
           {timeline.map((t, i) => (
@@ -98,7 +109,7 @@ export default function Page() {
         </ol>
       </section>
 
-      <section className="mt-12">
+      <section id="stack" className="mt-12">
         <h2 className="text-xl font-semibold tracking-tight">Stack</h2>
         <div className="flex flex-wrap gap-2 mt-3">
           {['Next.js', 'Postgres/Neon', 'Python', 'Workers', 'Redis (opc.)', 'LLMs'].map((s) => (
@@ -107,7 +118,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="mt-12">
+      <section id="precios" className="mt-12">
         <h2 className="text-xl font-semibold tracking-tight">Modelos de precio</h2>
         <div className="grid md:grid-cols-3 gap-4 mt-4">
           {[
@@ -120,7 +131,7 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="mt-12">
+      <section id="faq" className="mt-12">
         <h2 className="text-xl font-semibold tracking-tight">FAQ</h2>
         <div className="mt-4 space-y-3">
           {[
@@ -147,6 +158,8 @@ export default function Page() {
         <div className="flex gap-2">
           <Button asChild><Link href="/contacto">Agenda diagnóstico</Link></Button>
           <Button asChild variant="outline"><Link href="/casos">Ver casos</Link></Button>
+        </div>
+      </div>
         </div>
       </div>
     </div>

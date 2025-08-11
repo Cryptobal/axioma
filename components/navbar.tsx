@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { useEffect, useState } from 'react'
+import { CommandPalette } from '@/components/command-palette'
 
 type NavLink = { href: Route; label: string }
 
@@ -92,6 +93,7 @@ export function Navbar() {
               </motion.div>
             ) : null}
           </AnimatePresence>
+          <CommandPalette />
         </div>
       </div>
     </header>
