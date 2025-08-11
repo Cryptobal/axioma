@@ -79,9 +79,9 @@ export function Navbar() {
                 className="md:hidden absolute left-0 right-0 top-full"
               >
                 <div className="pt-2">
-                  <div className="glass rounded-2xl px-4 py-4 mx-0 flex flex-col gap-3">
+                  <div className="rounded-2xl px-4 py-4 mx-0 flex flex-col gap-3 border backdrop-blur-xl bg-zinc-900/95 border-white/10 text-zinc-100">
                     {links.map((l) => (
-                      <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-zinc-200">
+                      <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-zinc-100">
                         {l.label}
                       </Link>
                     ))}
