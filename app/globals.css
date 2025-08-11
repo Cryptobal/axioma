@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --radius: 1rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-zinc-950 text-zinc-100 antialiased;
+}
+
+/* Glassmorphism helpers */
+.glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-card;
+}
+
+.container-max {
+  @apply max-w-7xl mx-auto px-6 py-8;
+}
+
+
