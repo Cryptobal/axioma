@@ -3,6 +3,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { Seo } from '@/components/seo'
+import { PageTransition } from '@/components/page-transition'
 import { SITE_URL } from '@/lib/seo'
 import { Analytics } from '@vercel/analytics/react'
 import Script from 'next/script'
@@ -46,7 +47,9 @@ export default function RootLayout({
       }} />
       <ThemeProvider>
         <Navbar />
-        <main className="min-h-dvh pt-20">{children}</main>
+        <main className="min-h-dvh pt-20">
+          <PageTransition>{children}</PageTransition>
+        </main>
         <Footer />
       </ThemeProvider>
       <Analytics />

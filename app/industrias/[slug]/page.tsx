@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { PageHeader } from '@/components/page-header'
 import { Badge } from '@/components/ui/badge'
 import Script from 'next/script'
+import { SectionNav } from '@/components/section-nav'
 
 const INDUSTRIES: Record<string, { title: string; problems: string[]; kpis: { label: string; value: string }[] }> = {
   'seguridad-privada': {
@@ -92,7 +93,16 @@ export default function IndustryPage({ params }: Props) {
         }),
       }} />
       <PageHeader title={data.title} subtitle="Solución modular con IA e integraciones, lista para producción." />
-      <section className="mt-6">
+      <div className="grid md:grid-cols-[240px,1fr] gap-8 mt-2">
+        <SectionNav items={[
+          { id: 'problemas', label: 'Problemas' },
+          { id: 'solucion', label: 'Solución Axima' },
+          { id: 'kpis', label: 'KPIs' },
+          { id: 'arquitectura', label: 'Arquitectura' },
+          { id: 'faq', label: 'FAQ' },
+        ]} />
+        <div>
+      <section id="problemas" className="mt-6">
         <h2 className="text-xl font-semibold tracking-tight">Problemas típicos</h2>
         <ul className="mt-3 grid md:grid-cols-2 gap-3">
           {data.problems.map((p) => (
@@ -100,7 +110,7 @@ export default function IndustryPage({ params }: Props) {
           ))}
         </ul>
       </section>
-      <section className="mt-10">
+      <section id="solucion" className="mt-10">
         <h2 className="text-xl font-semibold tracking-tight">Solución Axima</h2>
         <div className="grid md:grid-cols-3 gap-4 mt-4">
           {[
@@ -115,7 +125,7 @@ export default function IndustryPage({ params }: Props) {
           ))}
         </div>
       </section>
-      <section className="mt-10">
+      <section id="kpis" className="mt-10">
         <h2 className="text-xl font-semibold tracking-tight">Casos y KPIs esperables</h2>
         <div className="grid md:grid-cols-3 gap-3 mt-3">
           {data.kpis.map((k) => (
@@ -123,12 +133,12 @@ export default function IndustryPage({ params }: Props) {
           ))}
         </div>
       </section>
-      <section className="mt-10">
+      <section id="arquitectura" className="mt-10">
         <h2 className="text-xl font-semibold tracking-tight">Arquitectura de referencia</h2>
         <p className="text-sm text-zinc-400 mt-2 max-w-3xl">Front-end en Next.js, servicios en Python/Node, orquestación con colas, almacenamiento en Postgres/Neon, cache opcional en Redis, y workers para tareas asíncronas. Observabilidad, seguridad y auditoría desde el día 1.</p>
         <div className="flex flex-wrap gap-2 mt-3">{['Next.js', 'Python', 'Postgres/Neon', 'Workers', 'Redis (opc.)', 'LLMs'].map((s) => (<Badge key={s} variant="outline">{s}</Badge>))}</div>
       </section>
-      <section className="mt-10">
+      <section id="faq" className="mt-10">
         <h2 className="text-xl font-semibold tracking-tight">Entrega en 30–90 días</h2>
         <p className="text-sm text-zinc-400 mt-2">Priorizamos funcionalidades de alto impacto con entregas quincenales y métricas de negocio.</p>
       </section>
@@ -146,6 +156,8 @@ export default function IndustryPage({ params }: Props) {
         </div>
       </section>
       <div className="mt-12 rounded-2xl p-6 bg-primary text-white flex items-center justify-between"><div><div className="text-xl font-semibold">Conversemos {data.title}</div><p className="text-sm opacity-90">Agenda un diagnóstico y recibe un plan de 30–90 días.</p></div><a href="/contacto" className="rounded-2xl bg-white/15 px-4 py-2 text-sm">Agenda diagnóstico</a></div>
+        </div>
+      </div>
     </div>
   )
 }
