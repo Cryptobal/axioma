@@ -1,6 +1,7 @@
 import { Metadata } from 'next'
 import { Badge } from '@/components/ui/badge'
 import Script from 'next/script'
+import { PageHeader } from '@/components/page-header'
 
 export const metadata: Metadata = {
   title: 'Sobre nosotros',
@@ -11,8 +12,7 @@ export default function Page() {
   return (
     <div className="container-max">
       <Script id="ld-org" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'Axima', url: 'https://www.axima.com' }) }} />
-      <h1 className="text-3xl font-semibold tracking-tight">Sobre nosotros</h1>
-      <p className="text-zinc-300 mt-2 max-w-3xl">Creemos en la automatización pragmática: menos tareas repetitivas, más foco en decisiones de negocio. Construimos software con altos estándares de calidad, seguridad y trazabilidad.</p>
+      <PageHeader title="Sobre nosotros" subtitle="Automatización pragmática: menos tareas repetitivas, más foco en decisiones de negocio." />
       <section className="mt-10">
         <h2 className="text-xl font-semibold tracking-tight">Principios</h2>
         <ul className="mt-3 grid md:grid-cols-2 gap-3 text-sm text-zinc-300">

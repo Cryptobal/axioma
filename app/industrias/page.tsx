@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Breadcrumbs } from '@/components/breadcrumbs'
+import { PageHeader } from '@/components/page-header'
 import Script from 'next/script'
 
 export const metadata: Metadata = {
@@ -24,9 +24,7 @@ export default function Page() {
       <Script id="ld-industries" type="application/ld+json" dangerouslySetInnerHTML={{
         __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Industrias', url: 'https://www.axima.com/industrias' }),
       }} />
-      <Breadcrumbs />
-      <h1 className="mt-4 text-3xl font-semibold tracking-tight">Industrias</h1>
-      <p className="text-zinc-300 mt-3 max-w-3xl">Conocemos los matices de cada sector y proponemos soluciones modulares y trazables que reducen costos y mejoran el control operativo.</p>
+      <PageHeader title="Industrias" subtitle="Conocemos los matices de cada sector y proponemos soluciones modulares y trazables que reducen costos y mejoran el control operativo." />
       <div className="grid md:grid-cols-3 gap-4 mt-8">
         {sectors.map((s) => (
           <Card key={s.slug}>

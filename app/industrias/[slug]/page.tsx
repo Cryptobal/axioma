@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { Breadcrumbs } from '@/components/breadcrumbs'
+import { PageHeader } from '@/components/page-header'
 import { Badge } from '@/components/ui/badge'
 import Script from 'next/script'
 
@@ -91,8 +91,7 @@ export default function IndustryPage({ params }: Props) {
           ],
         }),
       }} />
-      <Breadcrumbs />
-      <h1 className="mt-4 text-3xl font-semibold tracking-tight">{data.title}</h1>
+      <PageHeader title={data.title} subtitle="Solución modular con IA e integraciones, lista para producción." />
       <section className="mt-6">
         <h2 className="text-xl font-semibold tracking-tight">Problemas típicos</h2>
         <ul className="mt-3 grid md:grid-cols-2 gap-3">

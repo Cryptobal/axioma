@@ -1,6 +1,7 @@
 import { readMDXFile, listMDX } from '@/lib/mdx'
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { PageHeader } from '@/components/page-header'
 
 type Props = { params: { slug: string } }
 
@@ -22,7 +23,8 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <div className="container-max">
       <Script id="ld-article" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: frontmatter.title }) }} />
-      <div className="grid md:grid-cols-[260px,1fr] gap-8">
+      <PageHeader title={frontmatter.title} />
+      <div className="grid md:grid-cols-[260px,1fr] gap-8 mt-2">
         <aside className="hidden md:block">
           <div className="glass rounded-2xl p-4 sticky top-24">
             <div className="text-sm font-medium">Tabla de contenidos</div>

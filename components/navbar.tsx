@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type NavLink = { href: Route; label: string }
 
@@ -22,11 +22,23 @@ const links: NavLink[] = [
 export function Navbar() {
   const pathname = usePathname()
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8)
+    onScroll()
+    window.addEventListener('scroll', onScroll)
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
 
   return (
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="container-max">
-        <div className="glass rounded-2xl px-4 py-3 flex items-center justify-between">
+        <div
+          className={`rounded-2xl px-4 py-3 flex items-center justify-between border transition-colors ${
+            scrolled ? 'bg-zinc-900/90 border-white/10 backdrop-blur-xl' : 'bg-zinc-900/70 border-white/10 backdrop-blur-xl'
+          }`}
+        >
           <Link href="/" className="font-medium tracking-tight text-zinc-100">
             Axima
           </Link>
@@ -35,9 +47,7 @@ export function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`text-sm hover:text-primary transition-colors ${
-                  pathname === l.href ? 'text-primary' : 'text-zinc-300'
-                }`}
+                className={`text-sm hover:text-primary transition-colors ${pathname === l.href ? 'text-primary' : 'text-zinc-300'}`}
               >
                 {l.label}
               </Link>

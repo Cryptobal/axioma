@@ -11,6 +11,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Toast, ToastProvider } from '@/components/ui/toast'
 import Script from 'next/script'
 import Link from 'next/link'
+import { PageHeader } from '@/components/page-header'
 
 type FormValues = z.infer<typeof contactSchema & any>
 
@@ -40,8 +41,7 @@ export default function Page() {
     <ToastProvider>
       <div className="container-max">
         <Script id="ld-contact" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'ContactPoint', contactType: 'sales', url: 'https://www.axima.com/contacto' }) }} />
-        <h1 className="text-3xl font-semibold tracking-tight">Contacto</h1>
-        <p className="text-zinc-400 mt-2">Cuéntanos tu contexto y agenda un diagnóstico sin costo.</p>
+        <PageHeader title="Contacto" subtitle="Cuéntanos tu contexto y agenda un diagnóstico sin costo." />
         <form onSubmit={handleSubmit(onSubmit)} className="mt-6 grid gap-4 max-w-xl">
           <Input aria-invalid={!!errors.name} {...register('name')} placeholder="Nombre" />
           {errors.name && <span className="text-xs text-red-400">{errors.name.message as string}</span>}

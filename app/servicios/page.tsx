@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
-import { Breadcrumbs } from '@/components/breadcrumbs'
+import { PageHeader } from '@/components/page-header'
 import Script from 'next/script'
 import Link from 'next/link'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
@@ -51,9 +51,7 @@ export default function Page() {
           url: 'https://www.axima.com/servicios',
         }),
       }} />
-      <Breadcrumbs />
-      <h1 className="mt-4 text-3xl font-semibold tracking-tight">Servicios de automatización y software a medida con IA</h1>
-      <p className="text-zinc-300 mt-3 max-w-3xl">Somos un equipo senior en producto, datos y automatización. Construimos software que reduce costos, acelera reporting y habilita escalado. Trabajamos con organizaciones de alto desempeño en múltiples industrias.</p>
+      <PageHeader title="Servicios de automatización y software a medida con IA" subtitle="Somos un equipo senior en producto, datos y automatización. Construimos software que reduce costos, acelera reporting y habilita escalado. Trabajamos con organizaciones de alto desempeño en múltiples industrias." />
       <p className="text-zinc-400 mt-2 max-w-3xl">Clientes refieren mejoras de 20–40% en KPIs operativos durante los primeros 90 días. Solicita un diagnóstico sin costo.</p>
 
       <section className="mt-10">

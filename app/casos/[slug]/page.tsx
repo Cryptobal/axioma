@@ -1,6 +1,7 @@
 import { readMDXFile, listMDX } from '@/lib/mdx'
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { PageHeader } from '@/components/page-header'
 
 type Props = { params: { slug: string } }
 
@@ -20,11 +21,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function CasePage({ params }: Props) {
   const { frontmatter, source } = await readMDXFile('casos', params.slug)
   return (
-    <div className="container-max prose prose-invert">
+    <div className="container-max">
       <Script id="ld-article" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: frontmatter.title, about: frontmatter.industry }) }} />
-      <h1>{frontmatter.title}</h1>
-      <p className="text-zinc-400 !mt-0">Industria: {frontmatter.industry}</p>
-      {source}
+      <PageHeader title={frontmatter.title} subtitle={`Industria: ${frontmatter.industry || ''}`} />
+      <article className="prose prose-invert mt-4">{source}</article>
     </div>
   )
 }

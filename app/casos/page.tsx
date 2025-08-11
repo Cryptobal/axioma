@@ -3,7 +3,7 @@ import { CardCase } from '@/components/card-case'
 import Link from 'next/link'
 import type { Metadata } from 'next'
 import Script from 'next/script'
-import { Breadcrumbs } from '@/components/breadcrumbs'
+import { PageHeader } from '@/components/page-header'
 
 export const metadata: Metadata = {
   title: 'Casos de éxito',
@@ -15,9 +15,7 @@ export default async function Page() {
   return (
     <div className="container-max">
       <Script id="ld-casos" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Casos de éxito' }) }} />
-      <Breadcrumbs />
-      <h1 className="text-3xl font-semibold tracking-tight">Casos de éxito</h1>
-      <p className="text-zinc-400 mt-2">Explora nuestros proyectos y resultados.</p>
+      <PageHeader title="Casos de éxito" subtitle="Explora nuestros proyectos, resultados y aprendizajes con KPIs medibles." />
       <div className="grid md:grid-cols-3 gap-6 mt-6">
         {items.map((c) => {
           const m1 = c.tags?.[0]?.split(' ')?.slice(-1)[0] || '+20%'
