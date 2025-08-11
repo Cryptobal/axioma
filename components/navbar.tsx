@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import type { Route } from 'next'
 import { usePathname } from 'next/navigation'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
 import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
@@ -35,7 +35,7 @@ export function Navbar() {
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="container-max">
         <div
-          className={`rounded-2xl px-4 py-3 flex items-center justify-between border transition-colors ${
+          className={`relative rounded-2xl px-4 py-3 flex items-center justify-between border text-zinc-100 transition-colors ${
             scrolled ? 'bg-zinc-900/90 border-white/10 backdrop-blur-xl' : 'bg-zinc-900/70 border-white/10 backdrop-blur-xl'
           }`}
         >
@@ -59,32 +59,41 @@ export function Navbar() {
               <Link href="/contacto">Agenda diagnóstico</Link>
             </Button>
           </div>
-          <button className="md:hidden" onClick={() => setOpen((v) => !v)} aria-label="Abrir menú">
-            {open ? <X className="size-6" /> : <Menu className="size-6" />}
+          <button
+            className="md:hidden rounded-xl p-2 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+            onClick={() => setOpen((v) => !v)}
+            aria-label="Abrir menú"
+            aria-expanded={open}
+          >
+            <motion.span initial={false} animate={{ rotate: open ? 90 : 0 }} transition={{ duration: 0.2 }}>
+              {open ? <X className="size-6" /> : <Menu className="size-6" />}
+            </motion.span>
           </button>
+          <AnimatePresence>
+            {open ? (
+              <motion.div
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                className="md:hidden absolute left-0 right-0 top-full"
+              >
+                <div className="pt-2">
+                  <div className="glass rounded-2xl px-4 py-4 mx-0 flex flex-col gap-3">
+                    {links.map((l) => (
+                      <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-zinc-200">
+                        {l.label}
+                      </Link>
+                    ))}
+                    <Button asChild className="mt-2">
+                      <Link href="/contacto">Agenda diagnóstico</Link>
+                    </Button>
+                  </div>
+                </div>
+              </motion.div>
+            ) : null}
+          </AnimatePresence>
         </div>
       </div>
-      {open && (
-        <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="md:hidden">
-          <div className="container-max -mt-6">
-            <div className="glass rounded-2xl px-4 py-4 flex flex-col gap-3">
-              {links.map((l) => (
-                <Link
-                  key={l.href}
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  className="text-zinc-200"
-                >
-                  {l.label}
-                </Link>
-              ))}
-              <Button asChild className="mt-2">
-                <Link href="/contacto">Agenda diagnóstico</Link>
-              </Button>
-            </div>
-          </div>
-        </motion.div>
-      )}
     </header>
   )
 }

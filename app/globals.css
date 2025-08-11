@@ -11,7 +11,7 @@ html {
 }
 
 body {
-  @apply bg-zinc-950 text-zinc-100 antialiased;
+  @apply bg-white text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100;
 }
 
 .prose a { @apply text-primary no-underline hover:underline; }
@@ -19,11 +19,13 @@ body {
 
 /* Glassmorphism helpers */
 .glass {
-  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-card;
+  @apply backdrop-blur-xl shadow-card border bg-black/5 border-black/10 dark:bg-white/5 dark:border-white/10;
 }
 
 .container-max {
   @apply max-w-7xl mx-auto px-6 py-8;
 }
+
+.prose a { @apply text-primary no-underline hover:underline; }
 
 

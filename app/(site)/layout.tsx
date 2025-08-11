@@ -44,7 +44,7 @@ export default function RootLayout({
           },
         }),
       }} />
-      <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+      <ThemeProvider>
         <Navbar />
         <main className="min-h-dvh pt-20">{children}</main>
         <Footer />
