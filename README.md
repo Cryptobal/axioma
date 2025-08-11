@@ -1,6 +1,6 @@
 # Axima
 
-Proyecto Next.js 14 con App Router, TypeScript, TailwindCSS, shadcn/ui, Framer Motion, next-themes, MDX y SEO base.
+Proyecto Next.js 14 (App Router) con TypeScript, TailwindCSS, shadcn/ui, Framer Motion, next-themes, MDX y next-seo.
 
 ## Desarrollo
 
@@ -15,6 +15,9 @@ npm run dev
 - `start`: servidor de producción
 - `lint`: reglas Next
 - `type-check`: comprobación TypeScript
+
+## Entorno
+- `NEXT_PUBLIC_SITE_URL=https://www.axima.com`
 
 ## Tailwind
 - Config en `tailwind.config.ts`

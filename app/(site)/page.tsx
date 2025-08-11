@@ -6,12 +6,26 @@ import { CTA } from '@/components/cta'
 import { CardCase } from '@/components/card-case'
 import type { Metadata } from 'next'
 import { homeMetadata } from '@/lib/seo'
+import Script from 'next/script'
+import Link from 'next/link'
 
 export const metadata: Metadata = homeMetadata
 
 export default function HomePage() {
   return (
     <>
+      <Script
+        id="ld-home"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebPage',
+            name: 'Axima — Automatización y software a medida con IA',
+            url: 'https://www.axima.com',
+          }),
+        }}
+      />
       <Hero />
       <Features />
       <Logos />
@@ -44,6 +58,7 @@ export default function HomePage() {
             ]}
           />
         </div>
+        <div className="mt-6"><Link className="text-primary" href="/casos">Ver más casos →</Link></div>
       </section>
 
       <Testimonials />

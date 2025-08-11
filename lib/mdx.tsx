@@ -11,6 +11,9 @@ export type MDXFrontmatter = {
   description?: string
   date?: string
   tags?: string[]
+  industry?: string
+  stack?: string[]
+  metrics?: { label: string; value: string }[]
 }
 
 const ROOT = process.cwd()
@@ -20,6 +23,7 @@ export async function readMDXFile(dir: 'blog' | 'casos', slug: string) {
   const raw = await fs.readFile(fullPath, 'utf8')
   const { content, data } = matter(raw)
   const frontmatter = data as MDXFrontmatter
+  const headings = Array.from(content.matchAll(/^###?\s+(.+)$/gm)).map((m) => m[1])
   const source = (
     <MDXRemote
       source={content}
@@ -31,7 +35,7 @@ export async function readMDXFile(dir: 'blog' | 'casos', slug: string) {
       }}
     />
   )
-  return { frontmatter, source }
+  return { frontmatter, source, headings }
 }
 
 export async function listMDX(dir: 'blog' | 'casos') {

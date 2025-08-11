@@ -9,9 +9,11 @@ type Props = {
   title: string
   description: string
   metrics: { label: string; value: string | number; decimals?: number }[]
+  href?: string
+  stack?: string[]
 }
 
-export function CardCase({ title, description, metrics }: Props) {
+export function CardCase({ title, description, metrics, href = '/casos', stack }: Props) {
   return (
     <motion.div whileHover={{ y: -4 }} className="glass rounded-2xl overflow-hidden">
       <div className="relative aspect-[16/9] bg-white/5">
@@ -32,8 +34,15 @@ export function CardCase({ title, description, metrics }: Props) {
             <Metric key={m.label} label={m.label} value={m.value} decimals={m.decimals} />
           ))}
         </div>
+        {stack && stack.length > 0 && (
+          <div className="mt-4 flex flex-wrap gap-2">
+            {stack.map((s) => (
+              <span key={s} className="rounded-xl border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] text-zinc-300">{s}</span>
+            ))}
+          </div>
+        )}
         <Button asChild variant="outline" className="mt-5">
-          <Link href="/casos">Ver caso completo</Link>
+          <Link href={href as any}>Leer caso</Link>
         </Button>
       </div>
     </motion.div>
