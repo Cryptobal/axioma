@@ -4,7 +4,8 @@ import { PageHeader } from '@/components/page-header'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import Link from 'next/link'
-import { Sparkles, Workflow, Boxes, ShieldCheck, Gauge, ListChecks, Lock, Handshake, Users } from 'lucide-react'
+import { Sparkles, Workflow, Boxes, ShieldCheck, Gauge, ListChecks, Lock, Handshake, Users, Brain } from 'lucide-react'
+import { CounterStat } from '@/components/counter-stat'
 
 export const metadata: Metadata = {
   title: 'Quiénes Somos — LX3',
@@ -41,9 +42,9 @@ export default function Page() {
         subtitle="Equipo senior en automatización, IA aplicada y plataformas. Convertimos estrategia en sistemas productivos en 30–90 días."
       />
 
-      {/* Hero editorial con 3 pilares */}
+      {/* Hero editorial con 3+3 pilares */}
       <section className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
-        {[{ i: Workflow, t: 'Automatización pragmática', d: 'Rediseñamos flujos críticos y eliminamos tareas repetitivas.' }, { i: Sparkles, t: 'IA aplicada', d: 'Extracción, clasificación y agentes donde generan valor.' }, { i: Boxes, t: 'Sistemas y plataformas', d: 'ERP modular, APIs modernas e integraciones listas para producción.' }].map((x) => (
+        {[{ i: Workflow, t: 'Automatización pragmática', d: 'Rediseñamos flujos críticos y eliminamos tareas repetitivas.' }, { i: Sparkles, t: 'IA aplicada', d: 'Extracción, clasificación y agentes donde generan valor.' }, { i: Boxes, t: 'Sistemas y plataformas', d: 'ERP modular, APIs modernas e integraciones listas para producción.' }, { i: Brain, t: 'Datos y decisiones', d: 'KPIs, trazabilidad y dashboards accionables.' }, { i: ShieldCheck, t: 'Seguridad y gobierno', d: 'Controles, auditoría y cumplimiento.' }, { i: Handshake, t: 'Ejecución y partnership', d: 'Entrega quincenal, SLAs y comunicación clara.' }].map((x) => (
           <Card key={x.t} className="overflow-hidden">
             <div className="relative h-16 md:h-20">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent" />
@@ -103,13 +104,14 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 4. Trayectoria (badges) */}
+      {/* 4. Trayectoria (counters) */}
       <section className="mt-10">
         <h2 className="text-xl font-semibold tracking-tight">Trayectoria y resultados</h2>
-        <div className="mt-3 flex flex-wrap gap-2">
-          {trackRecord.map((t) => (
-            <Badge key={t.k} variant="outline">{t.k} {t.v}</Badge>
-          ))}
+        <div className="mt-3 grid grid-cols-2 md:grid-cols-4 gap-3">
+          <CounterStat label="años de experiencia por líder" value={30} prefix="+" />
+          <CounterStat label="implementaciones empresariales" value={50} prefix="+" />
+          <CounterStat label="ahorro operativo típico" value={40} suffix="%" />
+          <CounterStat label="NPS satisfacción de clientes" value={75} />
         </div>
       </section>
 
