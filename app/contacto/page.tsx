@@ -41,40 +41,80 @@ export default function Page() {
     <ToastProvider>
       <div className="container-max">
         <Script id="ld-contact" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'ContactPoint', contactType: 'sales', url: 'https://www.lx3.ai/contacto' }) }} />
-        <PageHeader title="Contacto" subtitle="Cuéntanos tu contexto y agenda un diagnóstico sin costo." />
-        <div className="glass rounded-2xl overflow-hidden">
-          <div className="relative h-20 md:h-24">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent" />
+        <PageHeader title="Conversemos" subtitle="Cuéntanos tu contexto y agenda un diagnóstico sin costo. Respondemos en 24–48h hábiles." />
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-2">
+          {/* Formulario */}
+          <div className="md:col-span-2">
+            <div className="glass rounded-2xl overflow-hidden">
+              <div className="relative h-16 md:h-20">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent" />
+              </div>
+              <div className="p-5 md:p-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="text-xs text-zinc-500 dark:text-zinc-400">Nombre</label>
+                      <Input aria-invalid={!!errors.name} {...register('name')} placeholder="Tu nombre" />
+                      {errors.name && <span className="text-xs text-red-400">{errors.name.message as string}</span>}
+                    </div>
+                    <div>
+                      <label className="text-xs text-zinc-500 dark:text-zinc-400">Email</label>
+                      <Input aria-invalid={!!errors.email} {...register('email')} placeholder="tu@email.com" type="email" />
+                      {errors.email && <span className="text-xs text-red-400">{errors.email.message as string}</span>}
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                      <label className="text-xs text-zinc-500 dark:text-zinc-400">Empresa (opcional)</label>
+                      <Input {...register('company')} placeholder="Nombre de empresa" />
+                    </div>
+                    <div>
+                      <label className="text-xs text-zinc-500 dark:text-zinc-400">Tamaño</label>
+                      <Select onValueChange={(v) => setValue('size', v)}>
+                        <SelectTrigger aria-invalid={!!errors.size}><SelectValue placeholder="Selecciona" /></SelectTrigger>
+                        <SelectContent>
+                          {['1-10','11-50','51-200','200+'].map((s) => (<SelectItem key={s} value={s}>{s}</SelectItem>))}
+                        </SelectContent>
+                      </Select>
+                      {errors.size && <span className="text-xs text-red-400">{errors.size.message as string}</span>}
+                    </div>
+                  </div>
+                  <div>
+                    <label className="text-xs text-zinc-500 dark:text-zinc-400">Dolor principal</label>
+                    <Select onValueChange={(v) => setValue('pain', v)}>
+                      <SelectTrigger aria-invalid={!!errors.pain}><SelectValue placeholder="Selecciona" /></SelectTrigger>
+                      <SelectContent>
+                        {['Costos', 'Errores manuales', 'Reporting', 'Silos', 'Trazabilidad', 'Escalado'].map((s) => (<SelectItem key={s} value={s}>{s}</SelectItem>))}
+                      </SelectContent>
+                    </Select>
+                    {errors.pain && <span className="text-xs text-red-400">{errors.pain.message as string}</span>}
+                  </div>
+                  <div>
+                    <label className="text-xs text-zinc-500 dark:text-zinc-400">Mensaje</label>
+                    <Textarea aria-invalid={!!errors.message} {...register('message')} placeholder="Cuéntanos tu necesidad" className="h-28" />
+                    {errors.message && <span className="text-xs text-red-400">{errors.message.message as string}</span>}
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Button type="submit" disabled={isSubmitting}>Enviar</Button>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">o escríbenos a <a className="text-primary" href="mailto:hola@lx3.ai">hola@lx3.ai</a></span>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
-          <div className="p-6">
-            <div className="text-sm text-zinc-600 dark:text-zinc-300">Responden personas, no bots. Típicamente en 24–48h hábiles.</div>
+          {/* Información */}
+          <div>
+            <div className="glass rounded-2xl p-5 md:p-6">
+              <div className="text-sm font-medium">Información</div>
+              <ul className="mt-3 space-y-2 text-sm text-zinc-600 dark:text-zinc-300">
+                <li>Tiempo de respuesta: 24–48h hábiles</li>
+                <li>Zona horaria: GMT-3</li>
+                <li>Email: <a href="mailto:hola@lx3.ai" className="text-primary">hola@lx3.ai</a></li>
+              </ul>
+              <div className="mt-4 text-xs text-zinc-500 dark:text-zinc-400">Protegemos tus datos. Lee nuestra <a className="text-primary" href="/privacidad">política de privacidad</a>.</div>
+            </div>
           </div>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} className="mt-6 grid gap-4 max-w-xl">
-          <Input aria-invalid={!!errors.name} {...register('name')} placeholder="Nombre" />
-          {errors.name && <span className="text-xs text-red-400">{errors.name.message as string}</span>}
-          <Input aria-invalid={!!errors.email} {...register('email')} placeholder="Email" type="email" />
-          {errors.email && <span className="text-xs text-red-400">{errors.email.message as string}</span>}
-          <Input {...register('company')} placeholder="Empresa (opcional)" />
-          <Select onValueChange={(v) => setValue('size', v)}>
-            <SelectTrigger aria-invalid={!!errors.size}><SelectValue placeholder="Tamaño de empresa" /></SelectTrigger>
-            <SelectContent>
-              {['1-10','11-50','51-200','200+'].map((s) => (<SelectItem key={s} value={s}>{s}</SelectItem>))}
-            </SelectContent>
-          </Select>
-          {errors.size && <span className="text-xs text-red-400">{errors.size.message as string}</span>}
-          <Select onValueChange={(v) => setValue('pain', v)}>
-            <SelectTrigger aria-invalid={!!errors.pain}><SelectValue placeholder="Dolor principal" /></SelectTrigger>
-            <SelectContent>
-              {['Costos', 'Errores manuales', 'Reporting', 'Silos', 'Trazabilidad', 'Escalado'].map((s) => (<SelectItem key={s} value={s}>{s}</SelectItem>))}
-            </SelectContent>
-          </Select>
-          {errors.pain && <span className="text-xs text-red-400">{errors.pain.message as string}</span>}
-          <Textarea aria-invalid={!!errors.message} {...register('message')} placeholder="Cuéntanos tu necesidad" className="h-28" />
-          {errors.message && <span className="text-xs text-red-400">{errors.message.message as string}</span>}
-          <Button type="submit" disabled={isSubmitting}>Enviar</Button>
-          <p className="text-sm text-zinc-400">También puedes escribirnos y ver nuestros <Link className="text-primary" href="/casos">casos</Link> o <Link className="text-primary" href="/servicios">servicios</Link>.</p>
-        </form>
       </div>
       {toast && <Toast open={open} onOpenChange={setOpen} title={toast.title} description={toast.desc} />}
     </ToastProvider>
