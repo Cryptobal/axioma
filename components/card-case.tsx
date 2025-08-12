@@ -41,8 +41,8 @@ export function CardCase({ title, description, metrics, href = '/casos', stack, 
         <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2">{description}</p>
         <div className="mt-4 grid grid-cols-2 gap-2 md:gap-3">
           {metrics.map((m) => (
-            <div className="min-w-0">
-              <Metric key={m.label} label={m.label} value={m.value} decimals={m.decimals} />
+            <div key={m.label} className="min-w-0">
+              <Metric label={m.label} value={m.value} decimals={m.decimals} />
             </div>
           ))}
         </div>
