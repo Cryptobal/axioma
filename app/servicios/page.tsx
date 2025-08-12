@@ -8,6 +8,7 @@ import Link from 'next/link'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { Brain, Boxes, Cable, ClipboardList, Wrench, Workflow, Bot, Link2, MessageSquare, FileSpreadsheet, ShieldCheck } from 'lucide-react'
 import { SectionNav } from '@/components/section-nav'
+import { FlowSteps } from '@/components/flow-steps'
 
 export const metadata: Metadata = {
   title: 'Servicios de automatización y software a medida con IA',
@@ -117,15 +118,8 @@ export default function Page() {
 
       <section id="como-trabajamos" className="mt-12">
         <h2 className="text-xl font-semibold tracking-tight">Cómo trabajamos</h2>
-        <ol className="grid md:grid-cols-5 gap-4 mt-4">
-          {timeline.map((t, i) => (
-            <li key={t.step} className="glass rounded-2xl p-4">
-              <Badge>Paso {i + 1}</Badge>
-              <div className="mt-2 font-medium">{t.step}</div>
-              <p className="text-sm text-zinc-400">{t.desc}</p>
-            </li>
-          ))}
-        </ol>
+        <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">Un flujo típico de orquestación que implementamos en semanas.</p>
+        <FlowSteps className="mt-4" />
       </section>
 
       
