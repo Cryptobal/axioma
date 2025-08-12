@@ -23,10 +23,10 @@ export function Logo({ className }: Props) {
       {/* X */}
       <path d="M60 10 L92 38" />
       <path d="M92 10 L60 38" />
-      {/* 3 */}
-      <path d="M112 14 C 128 8, 144 8, 156 14" />
-      <path d="M156 14 C 160 20, 160 26, 156 32" />
-      <path d="M112 32 C 128 26, 144 26, 156 32" />
+      {/* 3 (dos arcos + unión vertical sutil) */}
+      <path d="M112 16 Q 134 6 156 16" />
+      <path d="M112 32 Q 134 42 156 32" />
+      <path d="M152 16 L 152 32" />
     </svg>
   )
 }
