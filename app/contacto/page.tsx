@@ -12,6 +12,7 @@ import { Toast, ToastProvider } from '@/components/ui/toast'
 import Script from 'next/script'
 import Link from 'next/link'
 import { PageHeader } from '@/components/page-header'
+import Image from 'next/image'
 
 type FormValues = z.infer<typeof contactSchema & any>
 
@@ -42,6 +43,16 @@ export default function Page() {
       <div className="container-max">
         <Script id="ld-contact" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'ContactPoint', contactType: 'sales', url: 'https://www.lx3.ai/contacto' }) }} />
         <PageHeader title="Conversemos" subtitle="Cuéntanos tu contexto y agenda un diagnóstico sin costo. Respondemos en 24–48h hábiles." />
+        <div className="rounded-2xl overflow-hidden relative mt-2">
+          <div className="relative h-40 sm:h-56 md:h-72">
+            <Image src="/Images/Imagen de Adobe Stock.jpeg" alt="Paneles de datos y dashboards" fill className="object-cover" priority sizes="100vw" />
+            <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/60 via-zinc-950/30 to-transparent" />
+            <div className="absolute bottom-4 left-4 text-white">
+              <div className="text-xs uppercase tracking-wide opacity-80">Contacto</div>
+              <div className="text-lg font-medium">Hablemos de tu proyecto</div>
+            </div>
+          </div>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-2">
           {/* Formulario */}
           <div className="md:col-span-2">
