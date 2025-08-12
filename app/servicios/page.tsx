@@ -54,10 +54,17 @@ export default function Page() {
           url: 'https://www.lx3.ai/servicios',
         }),
       }} />
-      <PageHeader title="Servicios de automatización y software a medida con IA" subtitle="Somos un equipo senior en producto, datos y automatización. Construimos software que reduce costos, acelera reporting y habilita escalado. Trabajamos con organizaciones de alto desempeño en múltiples industrias." />
-      <p className="text-zinc-400 mt-2 max-w-3xl">Clientes refieren mejoras de 20–40% en KPIs operativos durante los primeros 90 días. Solicita un diagnóstico sin costo.</p>
+      <PageHeader title="Servicios de automatización y software a medida con IA" subtitle="Equipo senior en producto, datos y automatización. Reducimos costos, aceleramos reporting y habilitamos escalado con sistemas listos para producción." />
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mt-2">
+        {[{ t: 'Consultoría y diagnóstico', d: 'Blueprint ejecutable en 1–2 semanas.' }, { t: 'Desarrollo a medida', d: 'ERP modular, automatizaciones y APIs.' }, { t: 'Integraciones y soporte', d: 'Conectores, SLAs y evolución continua.' }].map((x) => (
+          <div key={x.t} className="glass rounded-2xl p-4">
+            <div className="text-sm font-medium">{x.t}</div>
+            <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">{x.d}</p>
+          </div>
+        ))}
+      </div>
 
-      <div className="grid md:grid-cols-[240px,1fr] gap-8 mt-6">
+      <div className="grid md:grid-cols-[260px,1fr] gap-8 mt-4 items-start">
         <SectionNav items={[
           { id: 'que-resolvemos', label: 'Qué resolvemos' },
           { id: 'servicios', label: 'Servicios' },
@@ -67,9 +74,9 @@ export default function Page() {
           { id: 'faq', label: 'FAQ' },
         ]} />
         <div>
-      <Section id="que-resolvemos" className="mt-4" variant="surface">
+      <Section id="que-resolvemos" className="mt-0" variant="dots">
         <h2 className="text-xl font-semibold tracking-tight">Qué resolvemos</h2>
-        <div className="grid md:grid-cols-3 gap-4 mt-4">
+        <div className="grid md:grid-cols-3 gap-4 mt-3">
           {painPoints.map((p) => (
             <Card key={p.title}>
               <CardContent>
