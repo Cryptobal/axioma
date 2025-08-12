@@ -1,6 +1,5 @@
 "use client"
 import Link from 'next/link'
-import type { Route } from 'next'
 import { usePathname } from 'next/navigation'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Button } from '@/components/ui/button'
@@ -9,13 +8,14 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import { useEffect, useState } from 'react'
 import { CommandPalette } from '@/components/command-palette'
 
-type NavLink = { href: Route | '/quienes-somos'; label: string }
+type NavLink = { href: string; label: string }
 
 const links: NavLink[] = [
   { href: '/servicios', label: 'Servicios' },
   { href: '/industrias', label: 'Industrias' },
   { href: '/casos', label: 'Casos' },
   { href: '/quienes-somos', label: 'Quiénes Somos' },
+  { href: '/sobre-nosotros', label: 'Sobre Nosotros' },
   { href: '/blog', label: 'Blog' },
   { href: '/contacto', label: 'Contacto' },
 ]
