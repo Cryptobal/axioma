@@ -8,7 +8,6 @@ const items = [
   { label: 'Servicios', href: '/servicios' },
   { label: 'Industrias', href: '/industrias' },
   { label: 'Casos', href: '/casos' },
-  { label: 'Sobre nosotros', href: '/sobre-nosotros' },
   { label: 'Blog', href: '/blog' },
   { label: 'Contacto', href: '/contacto' },
 ]

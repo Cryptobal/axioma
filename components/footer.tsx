@@ -17,7 +17,6 @@ export function Footer() {
                 <li><Link href="/industrias">Industrias</Link></li>
                 <li><Link href="/casos">Casos</Link></li>
                 <li><Link href={"/quienes-somos" as any}>Quiénes Somos</Link></li>
-                <li><Link href="/sobre-nosotros">Sobre Nosotros</Link></li>
                 <li><Link href="/blog">Blog</Link></li>
                 <li><Link href="/contacto">Contacto</Link></li>
               </ul>
