@@ -10,7 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#5B8CFF',
+        // Cyan / azul eléctrico como acento principal
+        primary: '#00B4D8',
+        primaryForeground: '#001018',
       },
       borderRadius: {
         xl: '1rem',

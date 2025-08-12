@@ -81,14 +81,18 @@ export default function Page() {
 
       <section id="servicios" className="mt-12">
         <h2 className="text-xl font-semibold tracking-tight">Nuestros servicios</h2>
-        <div className="grid md:grid-cols-3 gap-4 mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
           {services.map((s) => (
-            <Card key={s.title}>
-              <CardHeader>
-                <div className="flex items-center gap-2"><s.icon className="size-5 text-primary" /><div className="font-medium">{s.title}</div></div>
-              </CardHeader>
+            <Card key={s.title} className="overflow-hidden">
+              <div className="relative h-20 md:h-24">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent" />
+                <span className="absolute top-3 left-3 inline-flex items-center justify-center rounded-2xl bg-primary/15 text-primary/70 ring-1 ring-primary/20 p-2 md:p-3">
+                  <s.icon className="size-7 md:size-9" />
+                </span>
+              </div>
               <CardContent>
-                <p className="text-sm text-zinc-400">{s.desc}</p>
+                <div className="font-medium">{s.title}</div>
+                <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">{s.desc}</p>
                 <Button asChild variant="outline" className="mt-3"><Link href={s.href as any}>{s.cta}</Link></Button>
               </CardContent>
             </Card>

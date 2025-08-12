@@ -60,6 +60,60 @@ const INDUSTRIES: Record<string, { title: string; problems: string[]; kpis: { la
       { label: 'Satisfacción paciente', value: '+9%' },
     ],
   },
+  manufactura: {
+    title: 'Manufactura',
+    problems: ['Paradas no planificadas', 'OEE bajo', 'Calidad inconsistente', 'Planificación MRP manual'],
+    kpis: [
+      { label: 'OEE', value: '+6%' },
+      { label: 'Scrap', value: '-12%' },
+      { label: 'Paradas', value: '-18%' },
+    ],
+  },
+  energia: {
+    title: 'Energía',
+    problems: ['Lecturas y conciliaciones manuales', 'Cortes poco predecibles', 'Cumplimiento normativo complejo'],
+    kpis: [
+      { label: 'Disponibilidad', value: '+4%' },
+      { label: 'Tiempo de resolución', value: '-20%' },
+      { label: 'Multas', value: '-10%' },
+    ],
+  },
+  'banca-finanzas': {
+    title: 'Banca y finanzas',
+    problems: ['Onboarding lento', 'Score de riesgo opaco', 'Fraude y conciliación manual'],
+    kpis: [
+      { label: 'Aprobación en 1er día', value: '+15%' },
+      { label: 'Fraude', value: '-20%' },
+      { label: 'Tiempo de onboarding', value: '-30%' },
+    ],
+  },
+  telecomunicaciones: {
+    title: 'Telecomunicaciones',
+    problems: ['Churn alto', 'Gestión de tickets lenta', 'Forecast de red limitado'],
+    kpis: [
+      { label: 'Churn', value: '-8%' },
+      { label: 'TTR', value: '-25%' },
+      { label: 'Satisfacción', value: '+10%' },
+    ],
+  },
+  educacion: {
+    title: 'Educación',
+    problems: ['Matrícula y pagos manuales', 'Retención baja', 'Reportes regulatorios engorrosos'],
+    kpis: [
+      { label: 'Retención', value: '+7%' },
+      { label: 'Mora', value: '-12%' },
+      { label: 'Tiempo de cierre', value: '-35%' },
+    ],
+  },
+  transporte: {
+    title: 'Transporte',
+    problems: ['Rutas poco eficientes', 'Mantenimiento reactivo', 'Incidentes sin trazabilidad'],
+    kpis: [
+      { label: 'Costo por km', value: '-9%' },
+      { label: 'Disponibilidad flota', value: '+6%' },
+      { label: 'Incidentes', value: '-15%' },
+    ],
+  },
 }
 
 type Props = { params: { slug: string } }

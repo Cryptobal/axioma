@@ -14,6 +14,9 @@ export type MDXFrontmatter = {
   industry?: string
   stack?: string[]
   metrics?: { label: string; value: string }[]
+  tools?: string[]
+  keywords?: string[]
+  faq?: { q: string; a: string }[]
 }
 
 const ROOT = process.cwd()

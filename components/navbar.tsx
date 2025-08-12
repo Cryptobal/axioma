@@ -15,7 +15,6 @@ const links: NavLink[] = [
   { href: '/industrias', label: 'Industrias' },
   { href: '/casos', label: 'Casos' },
   { href: '/quienes-somos', label: 'Quiénes Somos' },
-  { href: '/sobre-nosotros', label: 'Sobre Nosotros' },
   { href: '/blog', label: 'Blog' },
   { href: '/contacto', label: 'Contacto' },
 ]
@@ -36,19 +35,23 @@ export function Navbar() {
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="container-max">
         <div
-          className={`relative rounded-2xl px-4 py-3 flex items-center justify-between border text-zinc-100 transition-colors ${
-            scrolled ? 'bg-zinc-900/90 border-white/10 backdrop-blur-xl' : 'bg-zinc-900/70 border-white/10 backdrop-blur-xl'
+          className={`relative rounded-2xl px-4 py-3 flex items-center justify-between border transition-colors ${
+            scrolled
+              ? 'bg-white/70 border-zinc-900/10 text-zinc-900 backdrop-blur-xl dark:bg-zinc-900/70 dark:border-zinc-50/10 dark:text-zinc-100'
+              : 'bg-white/50 border-zinc-900/10 text-zinc-900 backdrop-blur-xl dark:bg-zinc-900/50 dark:border-zinc-50/10 dark:text-zinc-100'
           }`}
         >
-          <Link href="/" className="font-medium tracking-tight text-zinc-100">
+          <Link href="/" className="font-medium tracking-tight">
             Axima
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             {links.map((l) => (
-                <Link
-                  key={l.href}
-                  href={l.href as any}
-                className={`text-sm hover:text-primary transition-colors ${pathname === l.href ? 'text-primary' : 'text-zinc-300'}`}
+              <Link
+                key={l.href}
+                href={l.href as any}
+                className={`text-sm transition-colors hover:text-primary ${
+                  pathname === l.href ? 'text-primary' : 'text-zinc-500 dark:text-zinc-300'
+                }`}
               >
                 {l.label}
               </Link>
@@ -61,7 +64,7 @@ export function Navbar() {
             </Button>
           </div>
           <button
-            className="md:hidden rounded-xl p-2 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
+            className="md:hidden rounded-xl p-2 hover:bg-zinc-900/5 dark:hover:bg-zinc-50/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40"
             onClick={() => setOpen((v) => !v)}
             aria-label="Abrir menú"
             aria-expanded={open}
@@ -79,9 +82,14 @@ export function Navbar() {
                 className="md:hidden absolute left-0 right-0 top-full"
               >
                 <div className="pt-2">
-                  <div className="rounded-2xl px-4 py-4 mx-0 flex flex-col gap-3 border backdrop-blur-xl bg-zinc-900/95 border-white/10 text-zinc-100">
+                  <div className="rounded-2xl px-4 py-4 mx-0 flex flex-col gap-3 border backdrop-blur-xl bg-white/85 dark:bg-zinc-900/90 border-zinc-900/10 dark:border-zinc-50/10">
                     {links.map((l) => (
-                      <Link key={l.href} href={l.href as any} onClick={() => setOpen(false)} className="text-zinc-100">
+                      <Link
+                        key={l.href}
+                        href={l.href as any}
+                        onClick={() => setOpen(false)}
+                        className="text-zinc-700 dark:text-zinc-100"
+                      >
                         {l.label}
                       </Link>
                     ))}

@@ -1,5 +1,5 @@
 "use client"
-import { useEffect, useRef, useState } from 'react'
+import { useMemo } from 'react'
 
 type Props = { label: string; value: string | number; decimals?: number }
 
@@ -13,30 +13,12 @@ function parseValue(raw: string | number): { sign: string; number: number; suffi
 
 export function Metric({ label, value, decimals = 0 }: Props) {
   const { sign, number, suffix } = parseValue(value)
-  const [display, setDisplay] = useState(0)
-  const raf = useRef<number | null>(null)
-
-  useEffect(() => {
-    const durationMs = 1200
-    const start = performance.now()
-    const tick = (now: number) => {
-      const t = Math.min(1, (now - start) / durationMs)
-      const eased = 1 - Math.pow(1 - t, 3)
-      setDisplay(number * eased)
-      if (t < 1) raf.current = requestAnimationFrame(tick)
-    }
-    raf.current = requestAnimationFrame(tick)
-    return () => {
-      if (raf.current) cancelAnimationFrame(raf.current)
-    }
-  }, [number])
+  const formatted = useMemo(() => `${sign}${number.toFixed(decimals)}${suffix}` as string, [sign, number, decimals, suffix])
 
   return (
-    <div className="rounded-xl border border-white/10 bg-white/5 p-3 text-center">
-      <div className="text-2xl font-semibold text-primary">
-        {`${sign}${display.toFixed(decimals)}${suffix}`}
-      </div>
-      <div className="text-[12px] text-zinc-400 mt-1">{label}</div>
+    <div className="rounded-xl border border-zinc-900/10 bg-zinc-900/5 p-3 text-center dark:border-zinc-50/10 dark:bg-zinc-50/5">
+      <div className="text-2xl font-semibold text-primary">{formatted}</div>
+      <div className="text-[12px] text-zinc-500 dark:text-zinc-400 mt-1 truncate">{label}</div>
     </div>
   )
 }

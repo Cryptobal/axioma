@@ -7,8 +7,8 @@ import { Button } from '@/components/ui/button'
 export function Hero() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-zinc-100 to-white dark:from-zinc-900/60 dark:to-zinc-950" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900/60 dark:to-zinc-950" />
+      <div className="absolute inset-0 bg-[radial-gradient(55%_50%_at_50%_0%,_var(--tw-gradient-stops))] from-primary/25 via-transparent to-transparent" />
       <div className="container-max relative">
         <div className="glass rounded-2xl p-6 md:p-12">
           <div className="grid md:grid-cols-2 gap-8 items-center">
@@ -19,15 +19,15 @@ export function Hero() {
                 transition={{ duration: 0.7 }}
                 className="text-3xl md:text-5xl font-semibold tracking-tight"
               >
-                Automatizamos tu operación con software a medida impulsado por IA
+                Sistemas de IA que orquestan tu operación y mueven el negocio
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1 }}
-                className="mt-4 text-zinc-300 max-w-xl"
+                className="mt-4 text-zinc-600 dark:text-zinc-300 max-w-xl"
               >
-                Construimos herramientas que se adaptan a tu negocio: ERP a medida, flujos de caja, control operativo, payroll y automatizaciones inteligentes.
+                Diseñamos y construimos sistemas a medida con IA aplicada: ERP modular, automatizaciones, APIs y flujos operativos que reducen costos y aumentan control.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -50,8 +50,8 @@ export function Hero() {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden"
             >
               <Image
-                src="/placeholder.svg"
-                alt="Ilustración de automatización con IA"
+                src="/Images/Imagen de Adobe Stock (1).jpeg"
+                alt="Visual de datos y automatización"
                 fill
                 className="object-cover"
                 priority

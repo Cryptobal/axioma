@@ -21,12 +21,15 @@ body {
 
 /* Glassmorphism helpers */
 .glass {
-  @apply backdrop-blur-xl shadow-card border bg-black/5 border-black/10 dark:bg-white/5 dark:border-white/10;
+  @apply backdrop-blur-xl shadow-card border bg-zinc-900/5 border-zinc-900/10 dark:bg-zinc-50/5 dark:border-zinc-50/10;
 }
 
 .container-max {
   @apply max-w-7xl mx-auto px-6 py-8;
 }
+
+/* Evitar desbordes de KPI en cards */
+.card-metrics-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
 .prose a { @apply text-primary no-underline hover:underline; }
 

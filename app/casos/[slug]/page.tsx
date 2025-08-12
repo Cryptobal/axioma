@@ -20,11 +20,47 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function CasePage({ params }: Props) {
   const { frontmatter, source } = await readMDXFile('casos', params.slug)
+  const defStack = ['Next.js', 'Python', 'Postgres', 'LLMs', 'Make.com', 'ChatGPT', 'ERP', 'CRM', 'Integraciones']
+  const stack = Array.from(new Set([...(frontmatter.stack || []), ...defStack]))
+  const tools = Array.from(new Set([...(frontmatter.tools || []), 'Excel/Sheets', 'Slack', 'Notion', 'HubSpot', 'ZohoCRM']))
   return (
     <div className="container-max">
-      <Script id="ld-article" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: frontmatter.title, about: frontmatter.industry }) }} />
+      <Script id="ld-article" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: frontmatter.title, about: frontmatter.industry, keywords: frontmatter.keywords }) }} />
+      {frontmatter.faq ? (
+        <Script id="ld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: frontmatter.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }) }} />
+      ) : null}
       <PageHeader title={frontmatter.title} subtitle={`Industria: ${frontmatter.industry || ''}`} />
-      <article className="prose prose-invert mt-4">{source}</article>
+      <div className="mt-4 grid grid-cols-1 gap-6 md:grid-cols-3">
+        <article className="prose prose-invert md:col-span-2">{source}</article>
+        <aside className="md:col-span-1">
+          <div className="rounded-2xl border border-zinc-900/10 bg-zinc-900/5 p-4 dark:border-zinc-50/10 dark:bg-zinc-50/5">
+            <div className="text-sm font-medium">Stack</div>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {stack.map((s) => (
+                <span key={s} className="rounded-xl border border-zinc-900/10 bg-zinc-900/5 px-2 py-0.5 text-[11px] text-zinc-700 dark:border-zinc-50/10 dark:bg-zinc-50/5 dark:text-zinc-200">{s}</span>
+              ))}
+            </div>
+          </div>
+          <div className="rounded-2xl border border-zinc-900/10 bg-zinc-900/5 p-4 mt-4 dark:border-zinc-50/10 dark:bg-zinc-50/5">
+            <div className="text-sm font-medium">Herramientas</div>
+            <div className="mt-3 flex flex-wrap gap-2">
+              {tools.map((s) => (
+                <span key={s} className="rounded-xl border border-zinc-900/10 bg-zinc-900/5 px-2 py-0.5 text-[11px] text-zinc-700 dark:border-zinc-50/10 dark:bg-zinc-50/5 dark:text-zinc-200">{s}</span>
+              ))}
+            </div>
+          </div>
+          {frontmatter.metrics && frontmatter.metrics.length > 0 ? (
+            <div className="rounded-2xl border border-zinc-900/10 bg-zinc-900/5 p-4 mt-4 dark:border-zinc-50/10 dark:bg-zinc-50/5">
+              <div className="text-sm font-medium">KPIs</div>
+              <ul className="mt-3 space-y-2 text-sm text-zinc-600 dark:text-zinc-300">
+                {frontmatter.metrics.map((m) => (
+                  <li key={m.label}><span className="text-primary font-medium">{m.value}</span> — {m.label}</li>
+                ))}
+              </ul>
+            </div>
+          ) : null}
+        </aside>
+      </div>
     </div>
   )
 }

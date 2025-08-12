@@ -42,6 +42,14 @@ export default function Page() {
       <div className="container-max">
         <Script id="ld-contact" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'ContactPoint', contactType: 'sales', url: 'https://www.axima.com/contacto' }) }} />
         <PageHeader title="Contacto" subtitle="Cuéntanos tu contexto y agenda un diagnóstico sin costo." />
+        <div className="glass rounded-2xl overflow-hidden">
+          <div className="relative h-20 md:h-24">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent" />
+          </div>
+          <div className="p-6">
+            <div className="text-sm text-zinc-600 dark:text-zinc-300">Responden personas, no bots. Típicamente en 24–48h hábiles.</div>
+          </div>
+        </div>
         <form onSubmit={handleSubmit(onSubmit)} className="mt-6 grid gap-4 max-w-xl">
           <Input aria-invalid={!!errors.name} {...register('name')} placeholder="Nombre" />
           {errors.name && <span className="text-xs text-red-400">{errors.name.message as string}</span>}

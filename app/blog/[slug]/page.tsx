@@ -23,7 +23,7 @@ export default async function BlogPostPage({ params }: Props) {
   return (
     <div className="container-max">
       <Script id="ld-article" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: frontmatter.title }) }} />
-      <PageHeader title={frontmatter.title} />
+      <PageHeader title={frontmatter.title} subtitle={frontmatter.description} />
       <div className="grid md:grid-cols-[260px,1fr] gap-8 mt-2">
         <aside className="hidden md:block">
           <div className="glass rounded-2xl p-4 sticky top-24">
