@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Logo } from '@/components/logo'
 
 export function Footer() {
   return (
@@ -7,7 +8,7 @@ export function Footer() {
         <div className="glass rounded-2xl px-6 py-10">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <div className="text-lg font-medium">LX3</div>
+              <div className="flex items-center gap-2"><Logo className="h-5 w-auto text-primary" /><span className="sr-only">LX3</span></div>
               <p className="text-sm text-zinc-400 mt-2">Software a medida con IA</p>
             </div>
             <div>

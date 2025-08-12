@@ -7,6 +7,7 @@ import { Menu, X } from 'lucide-react'
 import { ThemeToggle } from '@/components/theme-toggle'
 import { useEffect, useState } from 'react'
 import { CommandPalette } from '@/components/command-palette'
+import { Logo } from '@/components/logo'
 
 type NavLink = { href: string; label: string }
 
@@ -41,8 +42,9 @@ export function Navbar() {
               : 'bg-white/50 border-zinc-900/10 text-zinc-900 backdrop-blur-xl dark:bg-zinc-900/50 dark:border-zinc-50/10 dark:text-zinc-100'
           }`}
         >
-          <Link href="/" className="font-medium tracking-tight">
-            LX3
+          <Link href="/" className="flex items-center gap-2 font-medium tracking-tight">
+            <Logo className="h-5 w-auto text-primary" />
+            <span className="sr-only">LX3</span>
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             {links.map((l) => (
