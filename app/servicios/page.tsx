@@ -2,6 +2,7 @@ import { Metadata } from 'next'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { PageHeader } from '@/components/page-header'
+import { Section } from '@/components/section'
 import Script from 'next/script'
 import Link from 'next/link'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
@@ -65,7 +66,7 @@ export default function Page() {
           { id: 'faq', label: 'FAQ' },
         ]} />
         <div>
-      <section id="que-resolvemos" className="mt-4">
+      <Section id="que-resolvemos" className="mt-4" variant="surface">
         <h2 className="text-xl font-semibold tracking-tight">Qué resolvemos</h2>
         <div className="grid md:grid-cols-3 gap-4 mt-4">
           {painPoints.map((p) => (
@@ -77,9 +78,9 @@ export default function Page() {
             </Card>
           ))}
         </div>
-      </section>
+      </Section>
 
-      <section id="servicios" className="mt-12">
+      <Section id="servicios" className="mt-12" variant="mesh">
         <h2 className="text-xl font-semibold tracking-tight">Nuestros servicios</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
           {services.map((s) => (
@@ -98,7 +99,7 @@ export default function Page() {
             </Card>
           ))}
         </div>
-      </section>
+      </Section>
 
       <section id="como-trabajamos" className="mt-12">
         <h2 className="text-xl font-semibold tracking-tight">Cómo trabajamos</h2>

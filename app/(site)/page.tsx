@@ -9,6 +9,7 @@ import { homeMetadata } from '@/lib/seo'
 import Script from 'next/script'
 import Link from 'next/link'
 import { listMDX } from '@/lib/mdx'
+import { Section } from '@/components/section'
 
 export const metadata: Metadata = homeMetadata
 
@@ -29,10 +30,11 @@ export default async function HomePage() {
         }}
       />
       <Hero />
-      <Features />
-      <Logos />
+      <Section variant="mesh"><Features /></Section>
+      <Section variant="dots"><Logos /></Section>
 
-      <section className="container-max mt-16">
+      <Section className="mt-16">
+        <div className="container-max">
         <h2 className="text-xl font-semibold tracking-tight">Resultados que hablan</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
           {cases.map((c) => {
@@ -71,7 +73,8 @@ export default async function HomePage() {
           })}
         </div>
         <div className="mt-6"><Link className="text-primary" href="/casos">Ver más casos →</Link></div>
-      </section>
+        </div>
+      </Section>
 
       <Testimonials />
       <CTA />
