@@ -6,7 +6,7 @@ import { Section } from '@/components/section'
 import Script from 'next/script'
 import Link from 'next/link'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
-import { Brain, Boxes, Cable, ClipboardList, Wrench } from 'lucide-react'
+import { Brain, Boxes, Cable, ClipboardList, Wrench, Workflow, Bot, Link2, MessageSquare, FileSpreadsheet, ShieldCheck } from 'lucide-react'
 import { SectionNav } from '@/components/section-nav'
 
 export const metadata: Metadata = {
@@ -60,8 +60,8 @@ export default function Page() {
         <SectionNav items={[
           { id: 'que-resolvemos', label: 'Qué resolvemos' },
           { id: 'servicios', label: 'Servicios' },
+          { id: 'integraciones', label: 'Integraciones y herramientas' },
           { id: 'como-trabajamos', label: 'Cómo trabajamos' },
-          { id: 'stack', label: 'Stack' },
           { id: 'precios', label: 'Precios' },
           { id: 'faq', label: 'FAQ' },
         ]} />
@@ -80,8 +80,9 @@ export default function Page() {
         </div>
       </Section>
 
-      <Section id="servicios" className="mt-12" variant="mesh">
+      <Section id="servicios" className="mt-10" variant="mesh">
         <h2 className="text-xl font-semibold tracking-tight">Nuestros servicios</h2>
+        <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">Consultoría, desarrollo e integración end‑to‑end. Entregamos un MVP en 30–90 días y evolucionamos con SLAs.</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-4">
           {services.map((s) => (
             <Card key={s.title} className="overflow-hidden">
@@ -101,6 +102,19 @@ export default function Page() {
         </div>
       </Section>
 
+      <section id="integraciones" className="mt-10">
+        <h2 className="text-xl font-semibold tracking-tight">Integraciones y herramientas</h2>
+        <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">Usamos herramientas cotidianas para acelerar adopción y reducir riesgos; cuando hace falta, pasamos a APIs robustas.</p>
+        <div className="mt-4 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {[{ i: FileSpreadsheet, t: 'Excel/Sheets' }, { i: MessageSquare, t: 'Slack' }, { i: Link2, t: 'HubSpot / ZohoCRM' }, { i: Link2, t: 'ERP / e‑commerce' }, { i: Bot, t: 'ChatGPT (asistentes)' }, { i: Link2, t: 'Make.com / Zapier' }, { i: ShieldCheck, t: 'Auditoría y logs' }].map((x) => (
+            <div key={x.t} className="flex items-center gap-2 rounded-2xl border border-zinc-900/10 bg-zinc-900/5 p-3 dark:border-zinc-50/10 dark:bg-zinc-50/5">
+              <x.i className="size-5 text-primary" />
+              <span className="text-sm text-zinc-700 dark:text-zinc-300">{x.t}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       <section id="como-trabajamos" className="mt-12">
         <h2 className="text-xl font-semibold tracking-tight">Cómo trabajamos</h2>
         <ol className="grid md:grid-cols-5 gap-4 mt-4">
@@ -114,14 +128,7 @@ export default function Page() {
         </ol>
       </section>
 
-      <section id="stack" className="mt-12">
-        <h2 className="text-xl font-semibold tracking-tight">Stack</h2>
-        <div className="flex flex-wrap gap-2 mt-3">
-          {['Next.js', 'Postgres/Neon', 'Python', 'Workers', 'Redis (opc.)', 'LLMs'].map((s) => (
-            <Badge key={s} variant="outline">{s}</Badge>
-          ))}
-        </div>
-      </section>
+      
 
       <section id="precios" className="mt-12">
         <h2 className="text-xl font-semibold tracking-tight">Modelos de precio</h2>
