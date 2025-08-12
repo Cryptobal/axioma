@@ -9,13 +9,13 @@ import { ThemeToggle } from '@/components/theme-toggle'
 import { useEffect, useState } from 'react'
 import { CommandPalette } from '@/components/command-palette'
 
-type NavLink = { href: Route; label: string }
+type NavLink = { href: Route | '/quienes-somos'; label: string }
 
 const links: NavLink[] = [
   { href: '/servicios', label: 'Servicios' },
   { href: '/industrias', label: 'Industrias' },
   { href: '/casos', label: 'Casos' },
-  { href: '/sobre-nosotros', label: 'Sobre Nosotros' },
+  { href: '/quienes-somos', label: 'Quiénes Somos' },
   { href: '/blog', label: 'Blog' },
   { href: '/contacto', label: 'Contacto' },
 ]
@@ -45,9 +45,9 @@ export function Navbar() {
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             {links.map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
+                <Link
+                  key={l.href}
+                  href={l.href as any}
                 className={`text-sm hover:text-primary transition-colors ${pathname === l.href ? 'text-primary' : 'text-zinc-300'}`}
               >
                 {l.label}
@@ -81,7 +81,7 @@ export function Navbar() {
                 <div className="pt-2">
                   <div className="rounded-2xl px-4 py-4 mx-0 flex flex-col gap-3 border backdrop-blur-xl bg-zinc-900/95 border-white/10 text-zinc-100">
                     {links.map((l) => (
-                      <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="text-zinc-100">
+                      <Link key={l.href} href={l.href as any} onClick={() => setOpen(false)} className="text-zinc-100">
                         {l.label}
                       </Link>
                     ))}
