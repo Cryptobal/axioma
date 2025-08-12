@@ -11,7 +11,7 @@ export default function Page() {
           </div>
           <div className="p-6 prose prose-invert">
             <h2>1. Responsable del tratamiento</h2>
-            <p>Axima es responsable del tratamiento de los datos personales recolectados a través de este sitio y durante la prestación de servicios.</p>
+            <p>LX3 es responsable del tratamiento de los datos personales recolectados a través de este sitio y durante la prestación de servicios.</p>
             <h2>2. Datos recolectados</h2>
             <p>Recolectamos datos de contacto (nombre, email, empresa), información provista en formularios y datos técnicos mínimos (IP anonimizada, páginas visitadas) para fines de analítica.</p>
             <h2>3. Finalidades</h2>
@@ -27,7 +27,7 @@ export default function Page() {
             <h2>6. Compartición</h2>
             <p>Podemos compartir datos con proveedores de infraestructura (hosting, analítica, correo) bajo contratos de tratamiento y obligaciones de confidencialidad.</p>
             <h2>7. Derechos</h2>
-            <p>Puedes ejercer tus derechos de acceso, rectificación, actualización y eliminación escribiendo a contacto@axima.com. Atenderemos tu solicitud dentro de plazos razonables.</p>
+            <p>Puedes ejercer tus derechos de acceso, rectificación, actualización y eliminación escribiendo a hola@lx3.ai. Atenderemos tu solicitud dentro de plazos razonables.</p>
             <h2>8. Seguridad</h2>
             <p>Aplicamos prácticas de seguridad técnica y organizativa (cifrado en tránsito, control de accesos, registros de auditoría). El cliente es responsable de la información que nos provee y de su uso adecuado.</p>
             <h2>9. Cookies</h2>
@@ -37,7 +37,7 @@ export default function Page() {
             <h2>11. Cambios</h2>
             <p>Podemos actualizar esta política; indicaremos la fecha de última modificación.</p>
             <h2>12. Contacto</h2>
-            <p>Para privacidad: contacto@axima.com</p>
+            <p>Para privacidad: hola@lx3.ai</p>
           </div>
         </div>
       </div>

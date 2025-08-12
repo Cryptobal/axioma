@@ -32,7 +32,7 @@ export default function Page() {
       setToast({ title: 'Recibido 👌', desc: 'Te contactamos en 24–48h hábiles.' })
       setOpen(true)
     } else {
-      setToast({ title: 'Ocurrió un error', desc: 'Inténtalo más tarde o escribe a contacto@axima.com' })
+      setToast({ title: 'Ocurrió un error', desc: 'Inténtalo más tarde o escribe a hola@lx3.ai' })
       setOpen(true)
     }
   }
@@ -40,7 +40,7 @@ export default function Page() {
   return (
     <ToastProvider>
       <div className="container-max">
-        <Script id="ld-contact" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'ContactPoint', contactType: 'sales', url: 'https://www.axima.com/contacto' }) }} />
+        <Script id="ld-contact" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'ContactPoint', contactType: 'sales', url: 'https://www.lx3.ai/contacto' }) }} />
         <PageHeader title="Contacto" subtitle="Cuéntanos tu contexto y agenda un diagnóstico sin costo." />
         <div className="glass rounded-2xl overflow-hidden">
           <div className="relative h-20 md:h-24">

@@ -15,7 +15,7 @@ export default function Page() {
             <h2>2. Servicios</h2>
             <p>Prestamos servicios de consultoría, desarrollo e integración de software. Las propuestas comerciales definen alcance, entregables, plazos y precios. Cualquier cambio de alcance será presupuestado y acordado por escrito.</p>
             <h2>3. Propiedad intelectual</h2>
-            <p>El código, documentación y entregables desarrollados para el cliente serán de su propiedad una vez recibido el pago total acordado, salvo licencias de terceros. Nuestro material preexistente y know-how permanecen como propiedad de Axima.</p>
+            <p>El código, documentación y entregables desarrollados para el cliente serán de su propiedad una vez recibido el pago total acordado, salvo licencias de terceros. Nuestro material preexistente y know-how permanecen como propiedad de LX3.</p>
             <h2>4. Confidencialidad</h2>
             <p>Ambas partes se comprometen a mantener confidencial la información no pública a la que accedan durante la relación comercial, por un periodo mínimo de cinco (5) años.</p>
             <h2>5. Datos y seguridad</h2>
@@ -29,9 +29,9 @@ export default function Page() {
             <h2>9. Vigencia y terminación</h2>
             <p>Cualquiera de las partes podrá terminar el servicio por incumplimiento fundamental, previa notificación escrita y otorgando un plazo razonable de subsanación.</p>
             <h2>10. Ley aplicable</h2>
-            <p>Estos términos se rigen por las leyes del país de constitución de Axima, salvo acuerdo distinto en el contrato particular.</p>
+            <p>Estos términos se rigen por las leyes del país de constitución de LX3, salvo acuerdo distinto en el contrato particular.</p>
             <h2>11. Contacto</h2>
-            <p>Para consultas legales: contacto@axima.com</p>
+            <p>Para consultas legales: hola@lx3.ai</p>
           </div>
         </div>
       </div>

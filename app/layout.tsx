@@ -21,20 +21,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'Organization',
-            name: 'Axima',
-            url: 'https://www.axima.com',
-            logo: 'https://www.axima.com/opengraph-image',
+            name: 'LX3',
+            url: 'https://www.lx3.ai',
+            logo: 'https://www.lx3.ai/opengraph-image',
           }),
         }} />
         <Script id="ld-website" type="application/ld+json" dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebSite',
-            name: 'Axima',
-            url: 'https://www.axima.com',
+            name: 'LX3',
+            url: 'https://www.lx3.ai',
             potentialAction: {
               '@type': 'SearchAction',
-              target: 'https://www.axima.com/?q={search_term_string}',
+              target: 'https://www.lx3.ai/?q={search_term_string}',
               'query-input': 'required name=search_term_string',
             },
           }),

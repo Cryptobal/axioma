@@ -127,7 +127,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!data) return {}
   return {
     title: `${data.title}: software a medida con IA`,
-    description: `Solución Axima para ${data.title}: plataforma modular, automatización con IA e integraciones. Entrega en 30–90 días.`,
+    description: `Solución LX3 para ${data.title}: plataforma modular, automatización con IA e integraciones. Entrega en 30–90 días.`,
   }
 }
 
@@ -141,8 +141,8 @@ export default function IndustryPage({ params }: Props) {
           '@context': 'https://schema.org',
           '@type': 'BreadcrumbList',
           itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Industrias', item: 'https://www.axima.com/industrias' },
-            { '@type': 'ListItem', position: 2, name: data.title, item: `https://www.axima.com/industrias/${params.slug}` },
+            { '@type': 'ListItem', position: 1, name: 'Industrias', item: 'https://www.lx3.ai/industrias' },
+            { '@type': 'ListItem', position: 2, name: data.title, item: `https://www.lx3.ai/industrias/${params.slug}` },
           ],
         }),
       }} />
@@ -165,7 +165,7 @@ export default function IndustryPage({ params }: Props) {
         </ul>
       </section>
       <section id="solucion" className="mt-10">
-        <h2 className="text-xl font-semibold tracking-tight">Solución Axima</h2>
+        <h2 className="text-xl font-semibold tracking-tight">Solución LX3</h2>
         <div className="grid md:grid-cols-3 gap-4 mt-4">
           {[
             { title: 'Plataforma modular', desc: 'ERP de operaciones con módulos activables según prioridad.' },

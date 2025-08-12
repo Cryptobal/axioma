@@ -42,7 +42,7 @@ export function Navbar() {
           }`}
         >
           <Link href="/" className="font-medium tracking-tight">
-            Axima
+            LX3
           </Link>
           <nav className="hidden md:flex items-center gap-6">
             {links.map((l) => (

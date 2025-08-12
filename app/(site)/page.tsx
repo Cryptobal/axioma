@@ -23,8 +23,8 @@ export default async function HomePage() {
           __html: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'WebPage',
-            name: 'Axima — Automatización y software a medida con IA',
-            url: 'https://www.axima.com',
+            name: 'LX3 — Automatización y software a medida con IA',
+            url: 'https://www.lx3.ai',
           }),
         }}
       />

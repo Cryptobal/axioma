@@ -1,4 +1,4 @@
-# Axima
+# LX3
 
 Proyecto Next.js 14 (App Router) con TypeScript, TailwindCSS, shadcn/ui, Framer Motion, next-themes, MDX y next-seo.
 
@@ -17,7 +17,7 @@ npm run dev
 - `type-check`: comprobación TypeScript
 
 ## Entorno
-- `NEXT_PUBLIC_SITE_URL=https://www.axima.com`
+- `NEXT_PUBLIC_SITE_URL=https://www.lx3.ai`
 
 ## Tailwind
 - Config en `tailwind.config.ts`

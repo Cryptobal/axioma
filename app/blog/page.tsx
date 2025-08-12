@@ -17,7 +17,7 @@ export default async function Page() {
   return (
     <div className="container-max">
       <Script id="ld-blog" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Blog' }) }} />
-      <PageHeader title="Blog" subtitle="Ideas prácticas sobre automatización, ERP, APIs e IA aplicada." />
+      <PageHeader title="Blog — LX3" subtitle="Ideas prácticas sobre automatización, ERP, APIs e IA aplicada." />
       {allTags.length > 0 && (
         <div className="mt-2 flex flex-wrap gap-2">
           {allTags.map((t) => (

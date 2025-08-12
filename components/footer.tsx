@@ -7,7 +7,7 @@ export function Footer() {
         <div className="glass rounded-2xl px-6 py-10">
           <div className="grid md:grid-cols-4 gap-8">
             <div>
-              <div className="text-lg font-medium">Axima</div>
+              <div className="text-lg font-medium">LX3</div>
               <p className="text-sm text-zinc-400 mt-2">Software a medida con IA</p>
             </div>
             <div>
@@ -37,7 +37,7 @@ export function Footer() {
               </ul>
             </div>
           </div>
-          <div className="border-t border-white/10 mt-8 pt-6 text-xs text-zinc-500">© {new Date().getFullYear()} Axima. Todos los derechos reservados.</div>
+          <div className="border-t border-white/10 mt-8 pt-6 text-xs text-zinc-500">© {new Date().getFullYear()} LX3. Todos los derechos reservados.</div>
         </div>
       </div>
     </footer>

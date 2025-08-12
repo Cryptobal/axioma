@@ -16,7 +16,7 @@
     <circle cx="980" cy="200" r="4"/>
     <circle cx="600" cy="420" r="5"/>
   </g>
-  <text x="60" y="340" fill="#E5E7EB" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto" font-size="44" font-weight="700">Axima</text>
+  <text x="60" y="340" fill="#E5E7EB" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto" font-size="44" font-weight="700">LX3</text>
   <text x="60" y="390" fill="#9CA3AF" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto" font-size="20">Placeholder de imagen</text>
   <rect x="60" y="410" width="220" height="10" rx="5" fill="#5B8CFF" fill-opacity="0.6"/>
 </svg>

@@ -47,7 +47,7 @@ export default function Page() {
   return (
     <div className="container-max">
       <Script id="ld-industries" type="application/ld+json" dangerouslySetInnerHTML={{
-        __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Industrias', url: 'https://www.axima.com/industrias' }),
+        __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'WebPage', name: 'Industrias', url: 'https://www.lx3.ai/industrias' }),
       }} />
       <PageHeader title="Industrias" subtitle="Conocemos los matices de cada sector y proponemos soluciones modulares y trazables que reducen costos y mejoran el control operativo." />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-8">

@@ -21,7 +21,7 @@ export default async function Image() {
           fontSize: 56,
         }}
       >
-        <div style={{ fontWeight: 700 }}>Axima</div>
+        <div style={{ fontWeight: 700 }}>LX3</div>
         <div style={{ fontSize: 28, marginTop: 8, opacity: 0.9 }}>Automatización y software a medida con IA</div>
       </div>
     ),

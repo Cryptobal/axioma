@@ -6,7 +6,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Quiénes Somos — Axima',
+  title: 'Quiénes Somos — LX3',
   description: 'Directores y profesionales con 30+ años de experiencia en automatización, IA y sistemas. Ejecutamos con estándares de clase mundial.',
 }
 
@@ -34,7 +34,7 @@ const trackRecord = [
 export default function Page() {
   return (
     <div className="container-max">
-      <Script id="ld-org" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'Axima', url: 'https://www.axima.com' }) }} />
+      <Script id="ld-org" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'LX3', url: 'https://www.lx3.ai' }) }} />
       <PageHeader
         title="Quiénes Somos"
         subtitle="Directores y profesionales con más de 30 años en automatización, IA y sistemas. Convertimos estrategia en software productivo, medible y seguro."

@@ -47,9 +47,9 @@ export default function Page() {
           '@context': 'https://schema.org',
           '@type': 'Service',
           name: 'Servicios de automatización y software a medida con IA',
-          provider: { '@type': 'Organization', name: 'Axima' },
+          provider: { '@type': 'Organization', name: 'LX3' },
           areaServed: 'LatAm',
-          url: 'https://www.axima.com/servicios',
+          url: 'https://www.lx3.ai/servicios',
         }),
       }} />
       <PageHeader title="Servicios de automatización y software a medida con IA" subtitle="Somos un equipo senior en producto, datos y automatización. Construimos software que reduce costos, acelera reporting y habilita escalado. Trabajamos con organizaciones de alto desempeño en múltiples industrias." />
