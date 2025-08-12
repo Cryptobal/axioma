@@ -4,22 +4,35 @@ slug: "integrar-erp-apis-modernas"
 date: "2025-06-20"
 description: "Patrones y decisiones para exponer e integrar datos de ERP de forma segura y escalable."
 tags: ["ERP", "APIs", "Integraciones"]
+keywords: ["integración ERP", "APIs ERP", "webhooks ERP", "ETL ERP", "seguridad APIs"]
 ---
 
 ## Por qué integrar
 Sin integraciones, el ERP se convierte en un silo. Con APIs modernas, habilitas automatización, reportes confiables y experiencias digitales coherentes.
 
 ## Patrones
-- API Gateway y autenticación
-- Webhooks y colas para eventos
-- ETL controlado para legados
-- Versionado y compatibilidad
+- API Gateway y autenticación (OAuth2, API Keys con rotación, scopes mínimos)
+- Webhooks y colas para eventos (reintentos, idempotencia, firma de mensajes)
+- ETL controlado para legados (ventanas, CDC, validaciones y trazabilidad)
+- Versionado y compatibilidad (contratos, pruebas contractuales)
 
 ## Buenas prácticas
-Trazabilidad, observabilidad, límites de tasa, pruebas contractuales y documentación viva.
+Trazabilidad end-to-end, observabilidad (métricas, logs, trazas), límites de tasa, pruebas contractuales y documentación viva (OpenAPI + ejemplos).
 
 ## Primeros pasos
-Define un dominio acotado (por ejemplo, órdenes), diseña contratos y habilita un piloto con métricas.
+Define un dominio acotado (ej. órdenes), diseña contratos y habilita un piloto con KPIs: tiempo de ciclo, errores y cobertura de eventos.
+
+## Arquitectura de referencia
+- Front: Next.js
+- Backend: Python/Node
+- Broker: colas (ex. SQS/Cloud Tasks)
+- Persistencia: Postgres/Neon
+- Cache (opc.): Redis
+
+## FAQ
+**¿Cómo asegurar webhooks?** Firma HMAC y reintentos exponenciales.
+
+**¿Cómo migrar sin detener operaciones?** Corre ambas rutas (v1/v2) y depreca con fecha.
 
 Revisa nuestros [casos](/casos) y [contacto](/contacto).
 
