@@ -4,6 +4,7 @@ import { PageHeader } from '@/components/page-header'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import Link from 'next/link'
+import { Sparkles, Workflow, Boxes, ShieldCheck, Gauge, ListChecks, Lock, Handshake, Users } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Quiénes Somos — LX3',
@@ -37,52 +38,41 @@ export default function Page() {
       <Script id="ld-org" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Organization', name: 'LX3', url: 'https://www.lx3.ai' }) }} />
       <PageHeader
         title="Quiénes Somos"
-        subtitle="Directores y profesionales con más de 30 años en automatización, IA y sistemas. Convertimos estrategia en software productivo, medible y seguro."
+        subtitle="Equipo senior en automatización, IA aplicada y plataformas. Convertimos estrategia en sistemas productivos en 30–90 días."
       />
 
-      {/* 1. Quiénes somos (mobile first) */}
-      <section className="mt-8 grid gap-4 md:grid-cols-12">
-        <Card className="md:col-span-7 overflow-hidden">
-          <div className="relative h-20 md:h-24">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent" />
-          </div>
-          <CardContent>
-            <div className="text-lg font-medium">Nuestra misión</div>
-            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
-              Aceleramos el impacto de negocio con sistemas a medida y <strong>IA aplicada</strong>. Rediseñamos procesos críticos y entregamos software listo para producción en 30–90 días.
-            </p>
-            <div className="mt-4 grid grid-cols-1 sm:grid-cols-3 gap-2">
-              {['Automatización pragmática', 'Datos y trazabilidad', 'Seguridad y gobierno'].map((s) => (
-                <span key={s} className="rounded-xl border border-zinc-900/10 bg-zinc-900/5 px-3 py-1 text-sm text-zinc-700 dark:border-zinc-50/10 dark:bg-zinc-50/5 dark:text-zinc-200">{s}</span>
-              ))}
+      {/* Hero editorial con 3 pilares */}
+      <section className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+        {[{ i: Workflow, t: 'Automatización pragmática', d: 'Rediseñamos flujos críticos y eliminamos tareas repetitivas.' }, { i: Sparkles, t: 'IA aplicada', d: 'Extracción, clasificación y agentes donde generan valor.' }, { i: Boxes, t: 'Sistemas y plataformas', d: 'ERP modular, APIs modernas e integraciones listas para producción.' }].map((x) => (
+          <Card key={x.t} className="overflow-hidden">
+            <div className="relative h-16 md:h-20">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent" />
+              <span className="absolute top-3 left-3 inline-flex items-center justify-center rounded-2xl bg-primary/15 text-primary/70 ring-1 ring-primary/20 p-2 md:p-3">
+                <x.i className="size-7 md:size-8" />
+              </span>
             </div>
-          </CardContent>
-        </Card>
-        <Card className="md:col-span-5 overflow-hidden">
-          <div className="relative h-20 md:h-24">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent" />
-          </div>
-          <CardContent>
-            <div className="text-lg font-medium">Cómo trabajamos</div>
-            <p className="mt-2 text-sm text-zinc-600 dark:text-zinc-300">
-              Iteramos quincenalmente con entregas a producción y KPIs claros; priorizamos alto impacto y aprendemos del uso real.
-            </p>
-            <div className="mt-4 flex flex-wrap gap-2">
-              {['Discovery', 'Blueprint 30–90', 'MVP', 'Evolución'].map((s) => (
-                <Badge key={s} variant="outline">{s}</Badge>
-              ))}
-            </div>
-          </CardContent>
-        </Card>
+            <CardContent>
+              <div className="font-medium">{x.t}</div>
+              <p className="text-sm text-zinc-600 dark:text-zinc-300 mt-1">{x.d}</p>
+            </CardContent>
+          </Card>
+        ))}
       </section>
 
       {/* 2. Principios (chips) */}
       <section className="mt-10">
         <h2 className="text-xl font-semibold tracking-tight">Principios</h2>
-        <div className="mt-3 grid grid-cols-1 gap-2 sm:grid-cols-2">
-          {principles.map((p) => (
-            <div key={p} className="rounded-2xl border border-zinc-900/10 bg-zinc-900/5 p-4 text-sm dark:border-zinc-50/10 dark:bg-zinc-50/5">
-              {p}
+        <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {[
+            { i: Gauge, t: 'Valor de negocio primero' },
+            { i: Workflow, t: 'Automatización pragmática' },
+            { i: ListChecks, t: 'Datos y trazabilidad' },
+            { i: ShieldCheck, t: 'Calidad productiva y seguridad' },
+            { i: Handshake, t: 'Transparencia y partnership' },
+          ].map((p) => (
+            <div key={p.t} className="rounded-2xl border border-zinc-900/10 bg-zinc-900/5 p-4 text-sm dark:border-zinc-50/10 dark:bg-zinc-50/5 flex items-center gap-3">
+              <p.i className="size-5 text-primary" />
+              <span>{p.t}</span>
             </div>
           ))}
         </div>
@@ -93,13 +83,21 @@ export default function Page() {
         <h2 className="text-xl font-semibold tracking-tight">Experiencia y liderazgo</h2>
         <div className="mt-3 grid grid-cols-1 gap-4 md:grid-cols-3">
           {[
-            { n: 'Dirección general', d: 'Ex CEOs/COOs con foco en eficiencia operativa y escalado.' },
-            { n: 'Arquitectura de sistemas', d: 'Diseño de plataformas, seguridad, observabilidad y gobierno.' },
-            { n: 'IA y Datos', d: 'Casos de IA pragmáticos, MLOps y métricas de valor.' },
+            { n: 'Dirección general', d: 'Ex CEOs/COOs con foco en eficiencia operativa y escalado.', i: Users },
+            { n: 'Arquitectura de sistemas', d: 'Plataformas, seguridad, observabilidad y gobierno.', i: Boxes },
+            { n: 'IA y Datos', d: 'Casos de IA pragmáticos, MLOps y métricas de valor.', i: Sparkles },
           ].map((e) => (
-            <Card key={e.n}>
-              <CardHeader><div className="font-medium">{e.n}</div></CardHeader>
-              <CardContent><p className="text-sm text-zinc-600 dark:text-zinc-300">{e.d}</p></CardContent>
+            <Card key={e.n} className="overflow-hidden">
+              <div className="relative h-16 md:h-20">
+                <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent" />
+                <span className="absolute top-3 left-3 inline-flex items-center justify-center rounded-2xl bg-primary/15 text-primary/70 ring-1 ring-primary/20 p-2 md:p-3">
+                  <e.i className="size-7 md:size-8" />
+                </span>
+              </div>
+              <CardContent>
+                <div className="font-medium">{e.n}</div>
+                <p className="text-sm text-zinc-600 dark:text-zinc-300 mt-1">{e.d}</p>
+              </CardContent>
             </Card>
           ))}
         </div>
@@ -113,6 +111,25 @@ export default function Page() {
             <Badge key={t.k} variant="outline">{t.k} {t.v}</Badge>
           ))}
         </div>
+      </section>
+
+      {/* 5. Cómo trabajamos (timeline) */}
+      <section className="mt-10">
+        <h2 className="text-xl font-semibold tracking-tight">Cómo trabajamos</h2>
+        <ol className="grid grid-cols-1 md:grid-cols-4 gap-4 mt-3">
+          {[
+            { s: 'Discovery', d: 'Entendimiento del negocio, objetivos y restricciones.' },
+            { s: 'Blueprint 30–90', d: 'Arquitectura, backlog y KPIs.' },
+            { s: 'MVP', d: 'Entrega quincenal con demos y feedback.' },
+            { s: 'Evolución', d: 'SLAs, roadmap y mejoras continuas.' },
+          ].map((t, idx) => (
+            <li key={t.s} className="glass rounded-2xl p-4">
+              <Badge> Paso {idx + 1}</Badge>
+              <div className="mt-2 font-medium">{t.s}</div>
+              <p className="text-sm text-zinc-600 dark:text-zinc-300">{t.d}</p>
+            </li>
+          ))}
+        </ol>
       </section>
 
       {/* 5. CTA final */}
