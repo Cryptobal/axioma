@@ -1,62 +1,112 @@
-import '@/app/globals.css'
+import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import type { Viewport } from 'next'
+import './globals.css'
 import { ThemeProvider } from '@/components/theme-provider'
 import { Navbar } from '@/components/navbar'
 import { Footer } from '@/components/footer'
 import { Seo } from '@/components/seo'
 import { PageTransition } from '@/components/page-transition'
-import { SITE_URL } from '@/lib/seo'
-import { Analytics } from '@vercel/analytics/react'
+import { GoogleTagManager, GoogleAnalytics } from '@/components/gtm'
 import Script from 'next/script'
 
-const inter = Inter({ subsets: ['latin'], display: 'swap' })
+const inter = Inter({ subsets: ['latin'] })
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export const metadata: Metadata = {
+  title: {
+    default: 'LX3 - Sistemas de IA y Automatización',
+    template: '%s | LX3'
+  },
+  description: 'Creamos sistemas de inteligencia artificial y automatización para empresas. Transformamos estrategias en sistemas productivos en 30 días.',
+  keywords: ['inteligencia artificial', 'automatización', 'sistemas', 'IA', 'software', 'empresas', 'productividad'],
+  authors: [{ name: 'LX3' }],
+  creator: 'LX3',
+  publisher: 'LX3',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  metadataBase: new URL('https://lx3.ai'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'es_ES',
+    url: 'https://lx3.ai',
+    title: 'LX3 - Sistemas de IA y Automatización',
+    description: 'Creamos sistemas de inteligencia artificial y automatización para empresas. Transformamos estrategias en sistemas productivos en 30 días.',
+    siteName: 'LX3',
+    images: [
+      {
+        url: '/opengraph-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'LX3 - Sistemas de IA y Automatización',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'LX3 - Sistemas de IA y Automatización',
+    description: 'Creamos sistemas de inteligencia artificial y automatización para empresas. Transformamos estrategias en sistemas productivos en 30 días.',
+    images: ['/opengraph-image.jpg'],
+    creator: '@lx3_ai',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+    yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
+    yahoo: process.env.NEXT_PUBLIC_YAHOO_VERIFICATION,
+  },
+}
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="es" suppressHydrationWarning>
+      <head>
+        {/* Google Tag Manager */}
+        {process.env.NEXT_PUBLIC_GTM_ID && (
+          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+        )}
+        
+        {/* Google Analytics */}
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        )}
+      </head>
       <body className={inter.className}>
-        <Seo />
-        <Script id="ld-org-global" type="application/ld+json" dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'Organization',
-            name: 'LX3',
-            url: 'https://www.lx3.ai',
-            logo: 'https://www.lx3.ai/opengraph-image',
-          }),
-        }} />
-        <Script id="ld-website" type="application/ld+json" dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebSite',
-            name: 'LX3',
-            url: 'https://www.lx3.ai',
-            potentialAction: {
-              '@type': 'SearchAction',
-              target: 'https://www.lx3.ai/?q={search_term_string}',
-              'query-input': 'required name=search_term_string',
-            },
-          }),
-        }} />
-        <ThemeProvider>
+        
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Seo />
           <Navbar />
-          <main className="min-h-dvh pt-20">
-            <PageTransition>{children}</PageTransition>
-          </main>
+          <PageTransition>
+            {children}
+          </PageTransition>
           <Footer />
         </ThemeProvider>
-        <Analytics />
       </body>
     </html>
   )
-}
-
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
-  maximumScale: 1,
-  userScalable: false,
 }
 
 
