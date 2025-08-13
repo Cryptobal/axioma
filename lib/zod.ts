@@ -5,6 +5,7 @@ export const contactSchema = z.object({
   email: z.string().email('Email inválido'),
   phone: z.string().regex(/^\d{9}$/, 'El celular debe tener 9 dígitos'),
   website: z.string().url('URL de página web inválida'),
+  company: z.string().optional(),
   message: z.string().min(10, 'Cuéntanos un poco más'),
 })
 
