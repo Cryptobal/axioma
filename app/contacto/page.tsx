@@ -59,6 +59,10 @@ export default function Page() {
               </div>
               <div className="p-5 md:p-6">
                 <form onSubmit={handleSubmit(onSubmit)} className="grid gap-4">
+                  {/* Nota para PyMEs si viene el segmento */}
+                  <small className="text-xs text-zinc-500 dark:text-zinc-400">
+                    ¿PyME? Tenemos MVPs de 30–60 días pensados para estandarizar operaciones y automatizar tareas.
+                  </small>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
                       <label className="text-xs text-zinc-500 dark:text-zinc-400">Nombre</label>

@@ -31,6 +31,7 @@ const services = [
   { icon: Brain, title: 'Automatización con IA', cta: 'Casos de IA', href: '/casos', desc: 'Agentes, RAG, extracción documental y clasificación semántica.' },
   { icon: Cable, title: 'Integraciones y APIs', cta: 'Ver integraciones', href: '/servicios', desc: 'APIs modernas, webhooks, conectores con ERPs y e-commerce.' },
   { icon: Wrench, title: 'Soporte y Evolución', cta: 'Hablar con soporte', href: '/contacto', desc: 'SLAs claros, roadmaps trimestrales, observabilidad y seguridad.' },
+  { icon: Workflow, title: 'Aplicaciones internas para PyMEs', cta: 'Soy PyME', href: '/contacto?segment=pymes', desc: 'Backoffice, aprobaciones, inventario y reporting; menos Excel, más control.' },
 ]
 
 const timeline = [
@@ -85,6 +86,24 @@ export default function Page() {
               </CardContent>
             </Card>
           ))}
+        </div>
+      </Section>
+
+      <Section id="pymes" className="mt-8" variant="mesh">
+        <h2 className="text-xl font-semibold tracking-tight">Para PyMEs</h2>
+        <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-1 max-w-2xl">Te ayudamos a crecer y expandirte con aplicaciones internas que automatizan tareas repetitivas, estandarizan procesos y mejoran la trazabilidad.</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 mt-4">
+          {[
+            'Crecimiento y expansión',
+            'Estandarización operativa',
+            'Automatización de tareas repetitivas',
+            'KPIs y trazabilidad accionable',
+          ].map((t) => (
+            <div key={t} className="glass rounded-2xl p-4 text-sm text-zinc-600 dark:text-zinc-300">{t}</div>
+          ))}
+        </div>
+        <div className="mt-4">
+          <Button asChild><Link href="/contacto?segment=pymes">Agenda diagnóstico PyME</Link></Button>
         </div>
       </Section>
 

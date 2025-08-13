@@ -27,7 +27,7 @@ export function Hero() {
                 transition={{ duration: 0.7, delay: 0.1 }}
                 className="mt-4 text-zinc-600 dark:text-zinc-300 max-w-xl"
               >
-                Diseñamos y construimos sistemas a medida con IA aplicada: ERP modular, automatizaciones, APIs y flujos operativos que reducen costos y aumentan control.
+                Diseñamos y construimos sistemas a medida con IA aplicada: ERP modular, automatizaciones, APIs y flujos operativos que reducen costos y aumentan control. También apoyamos a pequeñas y medianas empresas a crecer y expandirse con aplicaciones internas que automatizan tareas repetitivas y profesionalizan la gestión.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}

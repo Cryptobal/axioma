@@ -23,6 +23,11 @@ const features = [
     title: 'IA aplicada',
     desc: 'Menos tareas repetitivas, mejores decisiones.',
   },
+  {
+    icon: Boxes,
+    title: 'Impulso PyME',
+    desc: 'Aplicaciones internas para automatizar tareas iterativas y escalar con control.',
+  },
 ]
 
 export function Features() {

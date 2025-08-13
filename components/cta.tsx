@@ -15,9 +15,14 @@ export function CTA() {
         <div className="md:flex items-center justify-between gap-6">
           <div>
             <h3 className="text-xl md:text-2xl font-semibold tracking-tight">Conversemos sobre tus cuellos de botella</h3>
-            <p className="mt-1 text-sm opacity-90">Diseñemos el MVP y pongámoslo en producción.</p>
+            <p className="mt-1 text-sm opacity-90">¿PyME? Comencemos un MVP en 30–60 días.</p>
           </div>
-          <Button className="mt-4 md:mt-0" variant="default" size="lg">Agenda diagnóstico</Button>
+          <div className="flex gap-2">
+            <Button className="mt-4 md:mt-0" variant="default" size="lg">Agenda diagnóstico</Button>
+            <Button className="mt-4 md:mt-0" variant="secondary" size="lg" asChild>
+              <a href="/contacto?segment=pymes">Soy PyME</a>
+            </Button>
+          </div>
         </div>
       </motion.div>
     </section>

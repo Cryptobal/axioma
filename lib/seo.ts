@@ -12,14 +12,14 @@ export const defaultSEO: DefaultSeoProps = {
   defaultTitle: 'LX3 — Automatización y software a medida con IA',
   titleTemplate: '%s | LX3',
   description:
-    'Desarrollamos software a medida con IA para optimizar procesos y escalar operaciones. Consultoría + desarrollo end-to-end.',
+    'Desarrollamos software a medida con IA para optimizar procesos y escalar operaciones — para empresas y PyMEs. Aplicaciones internas que automatizan tareas y profesionalizan la gestión.',
   canonical: SITE_URL,
   openGraph: {
     type: 'website',
     url: SITE_URL,
     title: 'LX3 — Automatización y software a medida con IA',
     description:
-      'Desarrollamos software a medida con IA para optimizar procesos y escalar operaciones. Consultoría + desarrollo end-to-end.',
+      'Desarrollamos software a medida con IA para optimizar procesos y escalar operaciones — para empresas y PyMEs. Aplicaciones internas que automatizan tareas y profesionalizan la gestión.',
     siteName: 'LX3',
     images: [{ url: `${SITE_URL}/opengraph-image`, width: 1200, height: 630, alt: 'LX3' }],
   },
@@ -33,11 +33,11 @@ export const defaultSEO: DefaultSeoProps = {
 export const homeMetadata: Metadata = {
   title: 'Automatización y software a medida con IA',
   description:
-    'Desarrollamos software a medida con IA para optimizar procesos y escalar operaciones. Consultoría + desarrollo end-to-end. Agenda diagnóstico.',
+    'Desarrollamos software a medida con IA para optimizar procesos y escalar operaciones — también para PyMEs. Aplicaciones internas que automatizan tareas y profesionalizan la gestión. Agenda diagnóstico.',
   openGraph: {
     title: 'Automatización y software a medida con IA',
     description:
-      'Desarrollamos software a medida con IA para optimizar procesos y escalar operaciones. Consultoría + desarrollo end-to-end.',
+      'Desarrollamos software a medida con IA para optimizar procesos y escalar operaciones — también para PyMEs. Aplicaciones internas que automatizan tareas y profesionalizan la gestión.',
     type: 'website',
     url: SITE_URL,
   },

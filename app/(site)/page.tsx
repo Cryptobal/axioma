@@ -35,6 +35,23 @@ export default async function HomePage() {
 
       <Section className="mt-16">
         <div className="container-max">
+          <h2 className="text-xl font-semibold tracking-tight">Pensado también para PyMEs</h2>
+          <p className="text-sm text-zinc-600 dark:text-zinc-400 mt-2 max-w-2xl">Apoyamos a pequeñas y medianas empresas en su crecimiento y expansión, con aplicaciones internas que automatizan tareas repetitivas, estandarizan procesos y mejoran la trazabilidad.</p>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-4">
+            {[
+              'Automatizamos tareas iterativas y aprobaciones',
+              'KPIs, reporting y control operativo',
+              'MVP en 30–60 días para comenzar rápido',
+            ].map((t) => (
+              <div key={t} className="glass rounded-2xl p-4 text-sm text-zinc-600 dark:text-zinc-300">{t}</div>
+            ))}
+          </div>
+          <div className="mt-4"><Link className="text-primary" href="/contacto?segment=pymes">Soy PyME →</Link></div>
+        </div>
+      </Section>
+
+      <Section className="mt-16">
+        <div className="container-max">
         <h2 className="text-xl font-semibold tracking-tight">Resultados que hablan</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
           {cases.map((c) => {
