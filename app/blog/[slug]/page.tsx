@@ -1,6 +1,7 @@
 import { readMDXFile, listMDX } from '@/lib/mdx'
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { SITE_URL } from '@/lib/seo'
 import { PageHeader } from '@/components/page-header'
 
 type Props = { params: { slug: string } }
@@ -20,9 +21,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BlogPostPage({ params }: Props) {
   const { frontmatter, source, headings } = await readMDXFile('blog', params.slug)
+  const url = `${SITE_URL}/blog/${params.slug}`
+  const keywords = Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : undefined
+  const articleLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: frontmatter.title,
+    description: frontmatter.description,
+    datePublished: frontmatter.date,
+    author: [{ '@type': 'Organization', name: 'LX3' }],
+    publisher: { '@type': 'Organization', name: 'LX3' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    image: `${SITE_URL}/opengraph-image.jpg`,
+    keywords,
+  }
   return (
     <div className="container-max">
-      <Script id="ld-article" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: frontmatter.title }) }} />
+      <Script id="ld-blogposting" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
       <PageHeader title={frontmatter.title} subtitle={frontmatter.description} />
       <div className="grid md:grid-cols-[260px,1fr] gap-8 mt-2">
         <aside className="hidden md:block">
