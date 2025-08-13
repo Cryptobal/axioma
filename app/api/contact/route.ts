@@ -62,6 +62,24 @@ export async function POST(request: Request) {
         text,
         html,
       })
+
+      // Auto‑reply al solicitante
+      await resend.emails.send({
+        from: 'LX3 <onboarding@resend.dev>',
+        to: [data.email],
+        subject: 'Recibimos tu solicitud — LX3',
+        text: `Hola ${data.name},\n\nGracias por escribirnos. Recibimos tu mensaje y te responderemos en 24–48h hábiles.\n\nResumen:\n- Empresa: ${data.company || '-'}\n- Tamaño: ${data.size}\n- Dolor: ${data.pain}\n\nMensaje:\n${data.message}\n\nSaludos,\nEquipo LX3`,
+        html: `
+          <div style="font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; line-height:1.6;">
+            <p>Hola ${data.name},</p>
+            <p>Gracias por escribirnos. Recibimos tu mensaje y te responderemos en 24–48h hábiles.</p>
+            <p><strong>Resumen</strong><br/>Empresa: ${data.company || '-'}<br/>Tamaño: ${data.size}<br/>Dolor: ${data.pain}</p>
+            <p><strong>Mensaje</strong><br/>${data.message.replace(/\n/g, '<br/>')}</p>
+            <p>Saludos,<br/>Equipo LX3</p>
+          </div>
+        `,
+      })
+
       return NextResponse.json({ ok: true })
     }
 
