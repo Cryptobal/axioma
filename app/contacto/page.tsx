@@ -14,7 +14,7 @@ import Link from 'next/link'
 import { PageHeader } from '@/components/page-header'
 import Image from 'next/image'
 
-type FormValues = z.infer<typeof contactSchema & any>
+type FormValues = z.infer<typeof contactApiSchema>
 
 const formSchema = contactApiSchema
 

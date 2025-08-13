@@ -19,7 +19,7 @@ export function CTA() {
           </div>
           <div className="flex gap-2">
             <Button className="mt-4 md:mt-0" variant="default" size="lg">Agenda diagnóstico</Button>
-            <Button className="mt-4 md:mt-0" variant="secondary" size="lg" asChild>
+            <Button className="mt-4 md:mt-0" variant="outline" size="lg" asChild>
               <a href="/contacto?segment=pymes">Soy PyME</a>
             </Button>
           </div>
