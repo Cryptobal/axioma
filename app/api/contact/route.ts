@@ -28,20 +28,33 @@ export async function POST(request: Request) {
     }
     const data = parse.data
 
-    // Enviar a webhook (Make.com)
-    const webhookUrl = process.env.MAKE_WEBHOOK_URL || 'https://hook.us1.make.com/ua6d4cg8p09ubx89lmbcx8fqhgt9uov6'
+    // Envío al webhook de Make.com
     try {
+      const webhookUrl = 'https://hook.us1.make.com/ua6d4cg8p09ubx89lmbcx8fqhgt9uov6'
+      const webhookData = {
+        name: data.name,
+        email: data.email,
+        phone: data.phone,
+        website: data.website,
+        company: data.company || '',
+        size: data.size,
+        pain: data.pain,
+        message: data.message,
+        timestamp: new Date().toISOString(),
+        source: 'LX3 Website Contact Form'
+      }
+      
       await fetch(webhookUrl, {
         method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({
-          source: 'lx3-site',
-          type: 'contact',
-          timestamp: new Date().toISOString(),
-          payload: data,
-        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(webhookData),
       })
-    } catch {}
+    } catch (webhookError) {
+      console.error('Error enviando al webhook:', webhookError)
+      // Continuamos con el proceso aunque falle el webhook
+    }
 
     // Envío por email usando Resend
     const apiKey = process.env.RESEND_API_KEY
@@ -51,6 +64,8 @@ export async function POST(request: Request) {
       const lines = [
         `Nombre: ${data.name}`,
         `Email: ${data.email}`,
+        `Celular: ${data.phone}`,
+        `Página web: ${data.website}`,
         `Empresa: ${data.company || '-'}`,
         `Tamaño: ${data.size}`,
         `Dolor principal: ${data.pain}`,
@@ -63,6 +78,8 @@ export async function POST(request: Request) {
           <h2>Nuevo contacto LX3</h2>
           <p><strong>Nombre:</strong> ${data.name}</p>
           <p><strong>Email:</strong> ${data.email}</p>
+          <p><strong>Celular:</strong> ${data.phone}</p>
+          <p><strong>Página web:</strong> ${data.website}</p>
           <p><strong>Empresa:</strong> ${data.company || '-'}</p>
           <p><strong>Tamaño:</strong> ${data.size}</p>
           <p><strong>Dolor principal:</strong> ${data.pain}</p>

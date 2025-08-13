@@ -76,6 +76,18 @@ export default function Page() {
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>
+                      <label className="text-xs text-zinc-500 dark:text-zinc-400">Celular *</label>
+                      <Input aria-invalid={!!errors.phone} {...register('phone')} placeholder="912345678" type="tel" />
+                      {errors.phone && <span className="text-xs text-red-400">{errors.phone.message as string}</span>}
+                    </div>
+                    <div>
+                      <label className="text-xs text-zinc-500 dark:text-zinc-400">Página web *</label>
+                      <Input aria-invalid={!!errors.website} {...register('website')} placeholder="https://tuempresa.com" type="url" />
+                      {errors.website && <span className="text-xs text-red-400">{errors.website.message as string}</span>}
+                    </div>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
                       <label className="text-xs text-zinc-500 dark:text-zinc-400">Empresa (opcional)</label>
                       <Input {...register('company')} placeholder="Nombre de empresa" />
                     </div>
