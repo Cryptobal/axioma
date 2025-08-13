@@ -17,7 +17,7 @@ Agrega estas variables una por una:
 |----------|-------|-------------|
 | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | `G-P15709Y4Z1` | Production, Preview, Development |
 | `NEXT_PUBLIC_GTM_ID` | `GTM-P3MPQBTJ` | Production, Preview, Development |
-| `NEXT_PUBLIC_GOOGLE_VERIFICATION` | `tu-codigo-de-verificacion` | Production, Preview, Development |
+| `NEXT_PUBLIC_GOOGLE_VERIFICATION` | `--VL0pKvILyhIQ0hEUQsbFjw-PEeKigiq6P29rvL_dM` | Production, Preview, Development |
 | `RESEND_API_KEY` | `re_xxxxxxxxxxxx` | Production, Preview, Development |
 | `NEXT_PUBLIC_SITE_URL` | `https://lx3.ai` | Production, Preview, Development |
 
@@ -34,7 +34,9 @@ Una vez deployado, verifica que:
 
 1. **Google Analytics**: Ve a GA4 → Reports → Realtime → Users
 2. **Google Tag Manager**: Usa el modo Preview para verificar tags
-3. **Google Search Console**: Verifica que la propiedad esté confirmada
+3. **Google Search Console**: 
+   - Envía el sitemap: `https://lx3.ai/sitemap.xml`
+   - Solicita indexación de URLs importantes
 
 ## Comandos para verificar localmente
 
