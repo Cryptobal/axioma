@@ -1,6 +1,7 @@
 import { readMDXFile, listMDX } from '@/lib/mdx'
 import type { Metadata } from 'next'
 import Script from 'next/script'
+import { SITE_URL } from '@/lib/seo'
 import { PageHeader } from '@/components/page-header'
 
 type Props = { params: { slug: string } }
@@ -23,9 +24,24 @@ export default async function CasePage({ params }: Props) {
   const defStack = ['Next.js', 'Python', 'Postgres', 'LLMs', 'Make.com', 'ChatGPT', 'ERP', 'CRM', 'Integraciones']
   const stack = Array.from(new Set([...(frontmatter.stack || []), ...defStack]))
   const tools = Array.from(new Set([...(frontmatter.tools || []), 'Excel/Sheets', 'Slack', 'Notion', 'HubSpot', 'ZohoCRM']))
+  const url = `${SITE_URL}/casos/${params.slug}`
+  const caseLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CaseStudy',
+    headline: frontmatter.title,
+    description: frontmatter.description,
+    about: frontmatter.industry,
+    keywords: frontmatter.keywords,
+    datePublished: frontmatter.date,
+    author: [{ '@type': 'Organization', name: 'LX3' }],
+    publisher: { '@type': 'Organization', name: 'LX3' },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+    image: `${SITE_URL}/opengraph-image.jpg`,
+    url,
+  }
   return (
     <div className="container-max">
-      <Script id="ld-article" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'Article', headline: frontmatter.title, about: frontmatter.industry, keywords: frontmatter.keywords }) }} />
+      <Script id="ld-casestudy" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(caseLd) }} />
       {frontmatter.faq ? (
         <Script id="ld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: frontmatter.faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) }) }} />
       ) : null}

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import type { Metadata } from 'next'
 import Script from 'next/script'
 import { PageHeader } from '@/components/page-header'
+import { SITE_URL } from '@/lib/seo'
 
 export const metadata: Metadata = {
   title: 'Casos de éxito',
@@ -12,9 +13,31 @@ export const metadata: Metadata = {
 
 export default async function Page() {
   const items = await listMDX('casos')
+  const listItems = items.map((p: any, idx: number) => ({
+    '@type': 'ListItem',
+    position: idx + 1,
+    item: { '@id': `${SITE_URL}/casos/${p.slug}`, name: p.title },
+  }))
+  const collectionLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Casos de éxito',
+    url: `${SITE_URL}/casos`,
+  }
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_URL },
+      { '@type': 'ListItem', position: 2, name: 'Casos de éxito', item: `${SITE_URL}/casos` },
+    ],
+  }
+  const itemListLd = { '@context': 'https://schema.org', '@type': 'ItemList', itemListElement: listItems }
   return (
     <div className="container-max">
-      <Script id="ld-casos" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: 'Casos de éxito' }) }} />
+      <Script id="ld-casos" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(collectionLd) }} />
+      <Script id="ld-casos-breadcrumbs" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <Script id="ld-casos-items" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListLd) }} />
       <PageHeader title="Casos de éxito" subtitle="Explora nuestros proyectos, resultados y aprendizajes con KPIs medibles." />
       <div className="grid grid-cols-1 gap-6 mt-6 md:grid-cols-3">
         {items.map((c) => {
