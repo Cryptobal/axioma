@@ -28,6 +28,21 @@ export async function POST(request: Request) {
     }
     const data = parse.data
 
+    // Enviar a webhook (Make.com)
+    const webhookUrl = process.env.MAKE_WEBHOOK_URL || 'https://hook.us1.make.com/ua6d4cg8p09ubx89lmbcx8fqhgt9uov6'
+    try {
+      await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          source: 'lx3-site',
+          type: 'contact',
+          timestamp: new Date().toISOString(),
+          payload: data,
+        }),
+      })
+    } catch {}
+
     // Envío por email usando Resend
     const apiKey = process.env.RESEND_API_KEY
     if (apiKey) {
