@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { z } from 'zod'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useForm } from 'react-hook-form'
-import { contactSchema } from '@/lib/zod'
+import { contactApiSchema } from '@/lib/zod'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
@@ -16,11 +16,7 @@ import Image from 'next/image'
 
 type FormValues = z.infer<typeof contactSchema & any>
 
-const formSchema = contactSchema.extend({
-  company: z.string().optional(),
-  size: z.string().min(1, 'Selecciona un tamaño'),
-  pain: z.string().min(1, 'Selecciona un dolor principal'),
-})
+const formSchema = contactApiSchema
 
 export default function Page() {
   const [open, setOpen] = useState(false)
