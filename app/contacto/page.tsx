@@ -17,6 +17,7 @@ import Image from 'next/image'
 type FormValues = z.infer<typeof contactSchema & any>
 
 const formSchema = contactSchema.extend({
+  company: z.string().optional(),
   size: z.string().min(1, 'Selecciona un tamaño'),
   pain: z.string().min(1, 'Selecciona un dolor principal'),
 })
