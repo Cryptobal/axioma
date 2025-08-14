@@ -33,7 +33,7 @@ export function Footer() {
               <div className="text-sm font-medium text-zinc-200">Redes</div>
               <ul className="mt-3 space-y-2 text-sm text-zinc-400">
                 <li><a href="https://twitter.com" target="_blank" rel="noreferrer">Twitter</a></li>
-                <li><a href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/company/lx3-ai/" target="_blank" rel="noreferrer">LinkedIn</a></li>
                 <li><a href="https://github.com" target="_blank" rel="noreferrer">GitHub</a></li>
               </ul>
             </div>

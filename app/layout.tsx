@@ -95,7 +95,7 @@ export default function RootLayout({
             name: 'LX3',
             url: SITE_URL,
             logo: `${SITE_URL}/opengraph-image.jpg`,
-            sameAs: ['https://www.linkedin.com/company/lx3', 'https://x.com/lx3_ai'],
+            sameAs: ['https://www.linkedin.com/company/lx3-ai/', 'https://x.com/lx3_ai'],
             contactPoint: [{ '@type': 'ContactPoint', contactType: 'sales', email: 'contacto@lx3.ai', areaServed: 'CL' }],
           }),
         }} />

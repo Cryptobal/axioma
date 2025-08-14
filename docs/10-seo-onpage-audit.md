@@ -79,7 +79,7 @@ Sitemap: https://www.lx3.ai/sitemap.xml
   "url": "https://www.lx3.ai",
   "logo": "https://www.lx3.ai/opengraph-image.jpg",
   "sameAs": [
-    "https://www.linkedin.com/company/lx3",
+    "https://www.linkedin.com/company/lx3-ai/",
     "https://x.com/lx3_ai"
   ],
   "contactPoint": [{
