@@ -84,7 +84,7 @@ export function Navbar() {
                 className="md:hidden absolute left-0 right-0 top-full"
               >
                 <div className="pt-2">
-                  <div className="rounded-2xl px-4 py-4 mx-0 flex flex-col gap-3 border backdrop-blur-xl bg-white/85 dark:bg-zinc-900/90 border-zinc-900/10 dark:border-zinc-50/10">
+                  <div className="rounded-2xl px-4 py-4 mx-0 flex flex-col gap-3 border backdrop-blur-xl bg-white/95 dark:bg-zinc-900/90 border-zinc-900/10 dark:border-zinc-50/10">
                     {links.map((l) => (
                       <Link
                         key={l.href}

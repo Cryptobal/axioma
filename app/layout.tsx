@@ -123,9 +123,11 @@ export default function RootLayout({
           <Seo />
           <BreadcrumbsJsonLdGlobal />
           <Navbar />
-          <PageTransition>
-            {children}
-          </PageTransition>
+          <main className="pt-20 md:pt-24">
+            <PageTransition>
+              {children}
+            </PageTransition>
+          </main>
           <Footer />
         </ThemeProvider>
       </body>
