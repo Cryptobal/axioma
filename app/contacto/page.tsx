@@ -33,7 +33,7 @@ export default function Page() {
       setToast({ title: 'Recibido 👌', desc: 'Te contactamos en 24–48h hábiles.' })
       setOpen(true)
     } else {
-      setToast({ title: 'Ocurrió un error', desc: 'Inténtalo más tarde o escribe a hola@lx3.ai' })
+      setToast({ title: 'Ocurrió un error', desc: 'Inténtalo más tarde o escribe a contacto@lx3.ai' })
       setOpen(true)
     }
   }
@@ -123,7 +123,7 @@ export default function Page() {
                   </div>
                   <div className="flex items-center gap-3">
                     <Button type="submit" disabled={isSubmitting}>Enviar</Button>
-                    <span className="text-xs text-zinc-500 dark:text-zinc-400">o escríbenos a <a className="text-primary" href="mailto:hola@lx3.ai">hola@lx3.ai</a></span>
+                    <span className="text-xs text-zinc-500 dark:text-zinc-400">o escríbenos a <a className="text-primary" href="mailto:contacto@lx3.ai">contacto@lx3.ai</a></span>
                   </div>
                 </form>
               </div>
@@ -136,7 +136,7 @@ export default function Page() {
               <ul className="mt-3 space-y-2 text-sm text-zinc-600 dark:text-zinc-300">
                 <li>Tiempo de respuesta: 24–48h hábiles</li>
                 <li>Zona horaria: GMT-3</li>
-                <li>Email: <a href="mailto:hola@lx3.ai" className="text-primary">hola@lx3.ai</a></li>
+                <li>Email: <a href="mailto:contacto@lx3.ai" className="text-primary">contacto@lx3.ai</a></li>
               </ul>
               <div className="mt-4 text-xs text-zinc-500 dark:text-zinc-400">Protegemos tus datos. Lee nuestra <a className="text-primary" href="/privacidad">política de privacidad</a>.</div>
             </div>
