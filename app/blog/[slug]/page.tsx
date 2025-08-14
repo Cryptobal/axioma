@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: frontmatter.title,
     description: frontmatter.description,
+    keywords: frontmatter.keywords,
     alternates: { canonical: `/blog/${params.slug}` },
   }
 }
@@ -23,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function BlogPostPage({ params }: Props) {
   const { frontmatter, source, headings } = await readMDXFile('blog', params.slug)
   const url = `${SITE_URL}/blog/${params.slug}`
-  const keywords = undefined
+  const keywords = frontmatter.keywords
   const articleLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -36,9 +37,23 @@ export default async function BlogPostPage({ params }: Props) {
     image: `${SITE_URL}/opengraph-image`,
     keywords,
   }
+  const faqLd = frontmatter.faq?.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: frontmatter.faq.map((f) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a },
+        })),
+      }
+    : undefined
   return (
     <div className="container-max">
       <Script id="ld-blogposting" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleLd) }} />
+      {faqLd ? (
+        <Script id="ld-faq" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      ) : null}
       <PageHeader title={frontmatter.title} subtitle={frontmatter.description} />
       <div className="grid md:grid-cols-[260px,1fr] gap-8 mt-2">
         <aside className="hidden md:block">
