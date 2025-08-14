@@ -6,8 +6,9 @@ import { BlogGrid } from '@/components/blog-grid'
 import { SITE_URL } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Blog',
-  description: 'Ideas prácticas sobre automatización, ERP, APIs e IA aplicada.',
+  title: 'Recursos y Blog | LX3',
+  description: 'Guías y casos de automatización, integración y ERP para PyMEs.',
+  alternates: { canonical: '/blog' },
 }
 
 export default async function Page() {
@@ -24,15 +25,15 @@ export default async function Page() {
     '@context': 'https://schema.org',
     '@type': 'Blog',
     url: `${SITE_URL}/blog`,
-    name: 'LX3 Blog',
-    description: 'Ideas prácticas sobre automatización, ERP, APIs e IA aplicada.',
+    name: 'LX3 — Recursos y Blog',
+    description: 'Guías y casos de automatización, integración y ERP para PyMEs.',
   }
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Inicio', item: SITE_URL },
-      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${SITE_URL}/blog` },
+      { '@type': 'ListItem', position: 2, name: 'Recursos', item: `${SITE_URL}/blog` },
     ],
   }
   const blogPostsLd = {
@@ -45,7 +46,7 @@ export default async function Page() {
       <Script id="ld-blog" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogLd) }} />
       <Script id="ld-breadcrumbs" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <Script id="ld-blog-items" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostsLd) }} />
-      <PageHeader title="Blog — LX3" subtitle="Ideas prácticas sobre automatización, ERP, APIs e IA aplicada." />
+      <PageHeader title="Recursos y Blog — LX3" subtitle="Guías y casos de automatización, integración y ERP para PyMEs." />
       <BlogGrid posts={posts as any} />
     </div>
   )

@@ -1,6 +1,6 @@
 import { MetadataRoute } from 'next'
 
-const SITE_URL = 'https://lx3.ai'
+const SITE_URL = 'https://www.lx3.ai'
 
 export default function robots(): MetadataRoute.Robots {
   return {

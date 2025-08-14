@@ -11,9 +11,10 @@ import { SectionNav } from '@/components/section-nav'
 import { FlowSteps } from '@/components/flow-steps'
 
 export const metadata: Metadata = {
-  title: 'Servicios de automatización y software a medida con IA',
+  title: 'Servicios | LX3',
   description:
-    'Consultoría, desarrollo ERP modular, automatización con IA, integraciones y soporte continuo. MVP en 30–90 días.',
+    'ERP modular en la nube, integración de sistemas, automatización con IA y aplicaciones internas para PyMEs. MVP en 30–90 días.',
+  alternates: { canonical: '/servicios' },
 }
 
 const painPoints = [

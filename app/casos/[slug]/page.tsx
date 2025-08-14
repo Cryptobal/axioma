@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: frontmatter.title,
     description: frontmatter.description,
+    alternates: { canonical: `/casos/${params.slug}` },
   }
 }
 
@@ -31,12 +32,12 @@ export default async function CasePage({ params }: Props) {
     headline: frontmatter.title,
     description: frontmatter.description,
     about: frontmatter.industry,
-    keywords: frontmatter.keywords,
+    keywords: undefined,
     datePublished: frontmatter.date,
     author: [{ '@type': 'Organization', name: 'LX3' }],
     publisher: { '@type': 'Organization', name: 'LX3' },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    image: `${SITE_URL}/opengraph-image.jpg`,
+    image: `${SITE_URL}/opengraph-image`,
     url,
   }
   return (

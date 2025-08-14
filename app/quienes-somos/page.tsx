@@ -1,4 +1,4 @@
-import { Metadata } from 'next'
+import type { Metadata } from 'next'
 import Script from 'next/script'
 import { PageHeader } from '@/components/page-header'
 import { Badge } from '@/components/ui/badge'
@@ -8,8 +8,9 @@ import { Sparkles, Workflow, Boxes, ShieldCheck, Gauge, ListChecks, Lock, Handsh
 import { CounterStat } from '@/components/counter-stat'
 
 export const metadata: Metadata = {
-  title: 'Quiénes Somos — LX3',
+  title: 'Quiénes somos | LX3',
   description: 'Directores y profesionales con 30+ años de experiencia en automatización, IA y sistemas. Ejecutamos con estándares de clase mundial.',
+  alternates: { canonical: '/quienes-somos' },
 }
 
 const principles = [

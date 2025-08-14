@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-
+export const alt = 'LX3 — Transformación digital para PyMEs'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -22,7 +22,7 @@ export default async function Image() {
         }}
       >
         <div style={{ fontWeight: 700 }}>LX3</div>
-        <div style={{ fontSize: 28, marginTop: 8, opacity: 0.9 }}>Automatización y software a medida con IA</div>
+        <div style={{ fontSize: 28, marginTop: 8, opacity: 0.9 }}>Transformación digital para PyMEs</div>
       </div>
     ),
     { ...size }

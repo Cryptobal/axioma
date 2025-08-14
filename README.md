@@ -1,3 +1,9 @@
+## SEO y dominio preferido
+
+- Dominio preferido: `https://www.lx3.ai` (301 redirección desde apex vía `app/middleware.ts`).
+- Canónicos y `metadataBase` apuntan a `www`.
+- Manifest PWA en `public/manifest.json` y `link` inyectado en `app/layout.tsx`.
+
 # LX3
 
 Proyecto Next.js 14 (App Router) con TypeScript, TailwindCSS, shadcn/ui, Framer Motion, next-themes, MDX y next-seo.

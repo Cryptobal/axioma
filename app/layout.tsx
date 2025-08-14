@@ -8,6 +8,8 @@ import { Seo } from '@/components/seo'
 import { PageTransition } from '@/components/page-transition'
 import { GoogleTagManager, GoogleAnalytics } from '@/components/gtm'
 import Script from 'next/script'
+import { SITE_URL } from '@/lib/seo'
+import { BreadcrumbsJsonLdGlobal } from '@/components/breadcrumbs-jsonld'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -17,32 +19,6 @@ export const metadata: Metadata = {
     template: '%s | LX3'
   },
   description: 'Creamos sistemas de inteligencia artificial y automatización para empresas. Transformamos estrategias en sistemas productivos en 30 días.',
-  keywords: [
-    'inteligencia artificial',
-    'IA',
-    'automatización de procesos',
-    'automatización empresarial',
-    'sistemas empresariales',
-    'software a medida',
-    'desarrollo de software',
-    'consultoría tecnológica',
-    'consultoría de automatización',
-    'transformación digital',
-    'integración de sistemas',
-    'integraciones API',
-    'ERP modular',
-    'orquestación de procesos',
-    'arquitectura de datos',
-    'eficiencia operativa',
-    'productividad',
-    'reducción de costos',
-    'reporting KPIs',
-    'logística automatizada',
-    'pricing dinámico retail',
-    'flujo de caja con IA',
-    'nómina automatizada',
-    'MVP 30 días',
-  ],
   authors: [{ name: 'LX3' }],
   creator: 'LX3',
   publisher: 'LX3',
@@ -51,20 +27,20 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://lx3.ai'),
+  metadataBase: new URL('https://www.lx3.ai'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
-    locale: 'es_ES',
-    url: 'https://lx3.ai',
+    locale: 'es_CL',
+    url: 'https://www.lx3.ai',
     title: 'LX3 - Sistemas de IA y Automatización',
     description: 'Creamos sistemas de inteligencia artificial y automatización para empresas. Transformamos estrategias en sistemas productivos en 30 días.',
     siteName: 'LX3',
     images: [
       {
-        url: '/opengraph-image.jpg',
+        url: '/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'LX3 - Sistemas de IA y Automatización',
@@ -75,8 +51,9 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'LX3 - Sistemas de IA y Automatización',
     description: 'Creamos sistemas de inteligencia artificial y automatización para empresas. Transformamos estrategias en sistemas productivos en 30 días.',
-    images: ['/opengraph-image.jpg'],
+    images: ['/opengraph-image'],
     creator: '@lx3_ai',
+    site: '@lx3_ai',
   },
   robots: {
     index: true,
@@ -104,13 +81,39 @@ export default function RootLayout({
   return (
     <html lang="es" suppressHydrationWarning>
       <head>
-        {/* Google Tag Manager */}
-        {process.env.NEXT_PUBLIC_GTM_ID && (
-          <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
-        )}
+        <link rel="manifest" href="/manifest.json" />
+        {process.env.NEXT_PUBLIC_GTM_ID ? (
+          <>
+            <link rel="preconnect" href="https://www.googletagmanager.com" crossOrigin="anonymous" />
+            <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID} />
+          </>
+        ) : null}
+        <Script id="ld-org" type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: 'LX3',
+            url: SITE_URL,
+            logo: `${SITE_URL}/opengraph-image.jpg`,
+            sameAs: ['https://www.linkedin.com/company/lx3', 'https://x.com/lx3_ai'],
+            contactPoint: [{ '@type': 'ContactPoint', contactType: 'sales', email: 'contacto@lx3.ai', areaServed: 'CL' }],
+          }),
+        }} />
+        <Script id="ld-website" type="application/ld+json" dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'LX3',
+            url: SITE_URL,
+            potentialAction: {
+              '@type': 'SearchAction',
+              target: `${SITE_URL}/?q={search_term_string}`,
+              'query-input': 'required name=search_term_string',
+            },
+          }),
+        }} />
       </head>
       <body className={inter.className}>
-        
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -118,6 +121,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Seo />
+          <BreadcrumbsJsonLdGlobal />
           <Navbar />
           <PageTransition>
             {children}

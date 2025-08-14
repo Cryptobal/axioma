@@ -7,8 +7,9 @@ import { PageHeader } from '@/components/page-header'
 import { SITE_URL } from '@/lib/seo'
 
 export const metadata: Metadata = {
-  title: 'Casos de éxito',
-  description: 'Resultados medibles con software a medida e IA. Lee los casos completos y los KPIs logrados.',
+  title: 'Casos | LX3',
+  description: 'Resultados medibles por industria. MVP en 30–90 días.',
+  alternates: { canonical: '/casos' },
 }
 
 export default async function Page() {

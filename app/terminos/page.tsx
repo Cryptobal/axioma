@@ -1,3 +1,9 @@
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Términos | LX3',
+  alternates: { canonical: '/terminos' },
+}
 import { PageHeader } from '@/components/page-header'
 
 export default function Page() {

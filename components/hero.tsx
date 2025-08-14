@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button'
 
 export function Hero() {
   return (
-    <section className="relative min-h-[92vh] flex items-center overflow-hidden">
+    <section className="relative min-h-[70vh] flex items-center overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900/60 dark:to-zinc-950" />
       <div className="absolute inset-0 bg-[radial-gradient(55%_50%_at_50%_0%,_var(--tw-gradient-stops))] from-primary/25 via-transparent to-transparent" />
       <div className="container-max relative">
@@ -19,7 +19,7 @@ export function Hero() {
                 transition={{ duration: 0.7 }}
                 className="text-3xl md:text-5xl font-semibold tracking-tight"
               >
-                Sistemas de IA que orquestan tu operación y mueven el negocio
+                Transformación digital para PyMEs: integración, ERP modular y automatización con IA.
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
@@ -27,7 +27,7 @@ export function Hero() {
                 transition={{ duration: 0.7, delay: 0.1 }}
                 className="mt-4 text-zinc-600 dark:text-zinc-300 max-w-xl"
               >
-                Diseñamos y construimos sistemas a medida con IA aplicada: ERP modular, automatizaciones, APIs y flujos operativos que reducen costos y aumentan control. También apoyamos a pequeñas y medianas empresas a crecer y expandirse con aplicaciones internas que automatizan tareas repetitivas y profesionalizan la gestión.
+                Integramos tus sistemas, automatizamos procesos y construimos ERP modular y apps internas. MVP en 30–90 días.
               </motion.p>
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -38,9 +38,8 @@ export function Hero() {
                 <Button asChild size="lg">
                   <Link href="/contacto">Agenda diagnóstico</Link>
                 </Button>
-                <Button asChild variant="outline" size="lg">
-                  <Link href="/casos">Ver casos</Link>
-                </Button>
+                <Button asChild variant="outline" size="lg"><Link href="/servicios">Ver demo</Link></Button>
+                <Button asChild variant="outline" size="lg"><Link href="/casos">Casos</Link></Button>
               </motion.div>
             </div>
             <motion.div

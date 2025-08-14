@@ -16,13 +16,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: frontmatter.title,
     description: frontmatter.description,
+    alternates: { canonical: `/blog/${params.slug}` },
   }
 }
 
 export default async function BlogPostPage({ params }: Props) {
   const { frontmatter, source, headings } = await readMDXFile('blog', params.slug)
   const url = `${SITE_URL}/blog/${params.slug}`
-  const keywords = Array.isArray(frontmatter.keywords) ? frontmatter.keywords.join(', ') : undefined
+  const keywords = undefined
   const articleLd = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
@@ -32,7 +33,7 @@ export default async function BlogPostPage({ params }: Props) {
     author: [{ '@type': 'Organization', name: 'LX3' }],
     publisher: { '@type': 'Organization', name: 'LX3' },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
-    image: `${SITE_URL}/opengraph-image.jpg`,
+    image: `${SITE_URL}/opengraph-image`,
     keywords,
   }
   return (

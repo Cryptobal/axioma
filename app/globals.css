@@ -21,7 +21,7 @@ body {
 
 /* Glassmorphism helpers */
 .glass {
-  @apply backdrop-blur-xl shadow-card border bg-zinc-900/5 border-zinc-900/10 dark:bg-zinc-50/5 dark:border-zinc-50/10;
+  @apply backdrop-blur-xl shadow-card border bg-zinc-900/5 border-zinc-900/10 dark:bg-zinc-900 dark:border-zinc-50/20;
 }
 
 .container-max {

@@ -13,6 +13,9 @@ import Script from 'next/script'
 import Link from 'next/link'
 import { PageHeader } from '@/components/page-header'
 import Image from 'next/image'
+// Aclaración: no se exporta metadata desde páginas cliente
+// (evita errores de compilación de Next.js)
+/* metadata removida: página cliente */
 
 type FormValues = z.infer<typeof contactApiSchema>
 

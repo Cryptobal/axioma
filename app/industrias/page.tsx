@@ -1,3 +1,5 @@
+// Limpieza: se mantiene una sola implementación de Industrias más completa abajo
+
 import { Metadata } from 'next'
 import Link from 'next/link'
 import { Card } from '@/components/ui/card'

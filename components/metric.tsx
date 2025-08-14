@@ -13,12 +13,13 @@ function parseValue(raw: string | number): { sign: string; number: number; suffi
 
 export function Metric({ label, value, decimals = 0 }: Props) {
   const { sign, number, suffix } = parseValue(value)
-  const formatted = useMemo(() => `${sign}${number.toFixed(decimals)}${suffix}` as string, [sign, number, decimals, suffix])
+  const nf = useMemo(() => new Intl.NumberFormat('es-CL', { minimumFractionDigits: decimals, maximumFractionDigits: decimals }), [decimals])
+  const formatted = useMemo(() => `${sign}${nf.format(number)}${suffix}` as string, [sign, number, suffix, nf])
 
   return (
-    <div className="rounded-xl border border-zinc-900/10 bg-zinc-900/5 p-3 text-center dark:border-zinc-50/10 dark:bg-zinc-50/5">
+    <div className="rounded-xl border border-zinc-900/10 bg-zinc-900/5 p-3 text-center dark:border-zinc-50/20 dark:bg-zinc-900">
       <div className="text-2xl font-semibold text-primary">{formatted}</div>
-      <div className="text-[12px] text-zinc-500 dark:text-zinc-400 mt-1 truncate">{label}</div>
+      <div className="text-[12px] text-zinc-600 dark:text-zinc-300 mt-1 truncate">{label}</div>
     </div>
   )
 }
