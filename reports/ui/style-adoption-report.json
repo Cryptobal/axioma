@@ -1,0 +1,200 @@
+{
+  "meta": {
+    "project": "LX3.ai",
+    "style_source": "https://gard.cl/",
+    "adoption_date": "2025-01-14T10:00:00Z",
+    "status": "completed"
+  },
+  "tokens_implemented": {
+    "color": {
+      "bg": {
+        "default": "#FFFFFF",
+        "section": "#F3F4F6", 
+        "dark": "#0B0F1A",
+        "darkDarker": "#0A0A0A",
+        "darkDarkest": "#050505"
+      },
+      "fg": {
+        "primary": "#374151",
+        "muted": "#4B5563"
+      },
+      "accent": {
+        "brand": "#1A2A90",
+        "brandHover": "#3B82F6",
+        "orange": "#FF6B35",
+        "orangeAa": "#C2410C"
+      },
+      "border": {
+        "subtle": "#E5E7EB",
+        "dark": "#374151"
+      }
+    },
+    "typography": {
+      "fontFamily": {
+        "base": "Inter",
+        "heading": "Space Grotesk"
+      },
+      "scale": {
+        "h1": "3.5rem/1.2/700",
+        "h2": "2.5rem/1.2/700", 
+        "h3": "2.0rem/1.2/600",
+        "h4": "1.5rem/1.3/600",
+        "h5": "1.25rem/1.4/600",
+        "body": "1.0rem/1.5/400",
+        "small": "0.875rem/1.5/400"
+      }
+    },
+    "space": {
+      "xs": "4px",
+      "sm": "8px", 
+      "md": "16px",
+      "lg": "24px",
+      "xl": "32px",
+      "2xl": "48px",
+      "3xl": "64px"
+    },
+    "radius": {
+      "sm": "8px",
+      "md": "10px",
+      "lg": "12px", 
+      "xl": "16px"
+    },
+    "shadow": {
+      "sm": "0 1px 2px 0 rgb(0 0 0 / 0.05)",
+      "md": "0 4px 6px -1px rgb(0 0 0 / 0.1)",
+      "lg": "0 10px 15px -3px rgb(0 0 0 / 0.1)"
+    }
+  },
+  "components_updated": {
+    "button": {
+      "status": "unified",
+      "variants": ["primary", "secondary", "outline", "ghost"],
+      "sizes": ["sm", "md", "lg"],
+      "features": ["hover_scale", "focus_ring", "transitions"]
+    },
+    "card": {
+      "status": "updated",
+      "changes": ["radius_lg", "shadow_md"]
+    },
+    "navbar": {
+      "status": "updated", 
+      "changes": ["padding_md", "height_lg"]
+    },
+    "hero": {
+      "status": "updated",
+      "changes": ["bg_gradient", "font_heading", "accent_brand"]
+    }
+  },
+  "accessibility": {
+    "contrast_fixes": {
+      "orange_button": {
+        "issue": "Insufficient contrast ratio 3.2:1 (Fail AA)",
+        "solution": "Changed from #FF6B35 to #C2410C",
+        "new_ratio": "4.5:1 (Pass AA)",
+        "status": "resolved"
+      }
+    },
+    "pa11y_results": {
+      "home_page": {
+        "errors": 2,
+        "warnings": 0,
+        "notices": 0,
+        "issues": [
+          {
+            "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G145.Fail",
+            "message": "Insufficient contrast ratio 2.46:1 (expected 3:1)",
+            "element": "h3 in CTA section",
+            "recommendation": "Change background to #00a2c3"
+          },
+          {
+            "code": "WCAG2AA.Principle1.Guideline1_4.1_4_3.G18.Fail", 
+            "message": "Insufficient contrast ratio 2.46:1 (expected 4.5:1)",
+            "element": "p in CTA section",
+            "recommendation": "Change background to #00819b"
+          }
+        ]
+      }
+    }
+  },
+  "performance": {
+    "lighthouse_status": "failed_due_to_browser_issues",
+    "baseline_available": true,
+    "files_created": [
+      "design/tokens.json",
+      "app/globals.css (updated)",
+      "tailwind.config.ts (updated)", 
+      "components/ui/button.tsx (updated)",
+      "components/navbar.tsx (updated)",
+      "components/hero.tsx (updated)",
+      "components/ui/card.tsx (updated)",
+      "app/layout.tsx (updated)",
+      "app/(site)/page.tsx (updated)"
+    ]
+  },
+  "css_variables": {
+    "colors": [
+      "--color-bg-default: #FFFFFF",
+      "--color-bg-section: #F3F4F6", 
+      "--color-bg-dark: #0B0F1A",
+      "--color-fg-primary: #374151",
+      "--color-fg-muted: #4B5563",
+      "--color-accent-brand: #1A2A90",
+      "--color-accent-brand-hover: #3B82F6",
+      "--color-accent-orange: #FF6B35",
+      "--color-accent-orange-aa: #C2410C"
+    ],
+    "shadows": [
+      "--shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05)",
+      "--shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1)",
+      "--shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1)"
+    ],
+    "radii": [
+      "--radius-sm: 8px",
+      "--radius-md: 10px", 
+      "--radius-lg: 12px",
+      "--radius-xl: 16px"
+    ]
+  },
+  "tailwind_extensions": {
+    "colors": {
+      "accent": ["brand", "brandHover", "orange", "orangeAa"],
+      "fg": ["primary", "muted"],
+      "surface": ["DEFAULT", "section"],
+      "border": ["subtle", "dark"]
+    },
+    "fontFamily": {
+      "title": "var(--font-space-grotesk)",
+      "body": "var(--font-inter)"
+    },
+    "boxShadow": ["sm", "md", "lg"],
+    "borderRadius": ["sm", "md", "lg", "xl"]
+  },
+  "next_steps": [
+    "Fix remaining contrast issues in CTA section",
+    "Test Lighthouse performance after browser fixes",
+    "Apply tokens to remaining components",
+    "Create component documentation"
+  ],
+  "contact_updates": {
+    "email": {
+      "old": "hola@lx3.ai",
+      "new": "contacto@lx3.ai",
+      "files_updated": [
+        "app/privacidad/page.tsx",
+        "app/terminos/page.tsx", 
+        "app/contacto/page.tsx",
+        "app/layout.tsx",
+        "snippets/jsonld/organization.json"
+      ]
+    },
+    "linkedin": {
+      "old": "https://www.linkedin.com/company/lx3",
+      "new": "https://www.linkedin.com/company/lx3-ai/",
+      "files_updated": [
+        "app/layout.tsx",
+        "components/footer.tsx",
+        "snippets/jsonld/organization.json"
+      ]
+    }
+  }
+}

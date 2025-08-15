@@ -33,7 +33,7 @@ export default function Page() {
             <h2>6. Compartición</h2>
             <p>Podemos compartir datos con proveedores de infraestructura (hosting, analítica, correo) bajo contratos de tratamiento y obligaciones de confidencialidad.</p>
             <h2>7. Derechos</h2>
-            <p>Puedes ejercer tus derechos de acceso, rectificación, actualización y eliminación escribiendo a hola@lx3.ai. Atenderemos tu solicitud dentro de plazos razonables.</p>
+            <p>Puedes ejercer tus derechos de acceso, rectificación, actualización y eliminación escribiendo a contacto@lx3.ai. Atenderemos tu solicitud dentro de plazos razonables.</p>
             <h2>8. Seguridad</h2>
             <p>Aplicamos prácticas de seguridad técnica y organizativa (cifrado en tránsito, control de accesos, registros de auditoría). El cliente es responsable de la información que nos provee y de su uso adecuado.</p>
             <h2>9. Cookies</h2>
@@ -43,7 +43,7 @@ export default function Page() {
             <h2>11. Cambios</h2>
             <p>Podemos actualizar esta política; indicaremos la fecha de última modificación.</p>
             <h2>12. Contacto</h2>
-            <p>Para privacidad: hola@lx3.ai</p>
+            <p>Para privacidad: contacto@lx3.ai</p>
           </div>
         </div>
       </div>

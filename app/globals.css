@@ -4,6 +4,43 @@
 
 :root {
   --radius: 1rem;
+  /* Gard design tokens (no romper compat; usar como alias) */
+  --color-bg-default: #FFFFFF;
+  --color-bg-section: #F3F4F6;
+  --color-bg-dark: #0B0F1A;
+  --color-bg-dark-darker: #0A0A0A;
+  --color-bg-dark-darkest: #050505;
+
+  --color-fg-primary: #374151;
+  --color-fg-muted: #4B5563;
+
+  --color-accent-brand: #1A2A90;
+  --color-accent-brand-hover: #3B82F6;
+  --color-accent-orange: #FF6B35;
+  /* Alto contraste AA para texto blanco sobre naranja */
+  --color-accent-orange-aa: #C2410C;
+
+  --color-border-subtle: #E5E7EB;
+  --color-border-dark: #374151;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+
+  /* Focus ring */
+  --gard-focus-ring: #3B82F6;
+
+  /* Aliases para Tailwind extendidos (mantener clases actuales) */
+  --primary: var(--color-accent-brand);
+  --primary-foreground: #FFFFFF;
+  --ring: var(--gard-focus-ring);
 }
 
 html {
@@ -16,12 +53,27 @@ body {
   overflow-x: hidden;
 }
 
+/* Dark mode token overrides */
+.dark {
+  --color-bg-default: var(--color-bg-dark);
+  /* En modo oscuro elevamos contraste de texto base */
+  --color-fg-primary: #F1F5F9;
+}
+
 .prose a { @apply text-primary no-underline hover:underline; }
 
 
 /* Glassmorphism helpers */
 .glass {
-  @apply backdrop-blur-xl shadow-card border bg-zinc-900/5 border-zinc-900/10 dark:bg-zinc-900 dark:border-zinc-50/20;
+  @apply backdrop-blur-xl border;
+  box-shadow: var(--shadow-lg);
+  background-color: rgba(0, 0, 0, 0.02);
+  border-color: color-mix(in oklab, var(--color-border-subtle) 60%, transparent);
+}
+
+/* Secciones base según token */
+.section-surface {
+  background-color: var(--color-bg-section);
 }
 
 .container-max {

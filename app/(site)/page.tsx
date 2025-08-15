@@ -8,6 +8,7 @@ import type { Metadata } from 'next'
 import { homeMetadata } from '@/lib/seo'
 import Script from 'next/script'
 import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 import { listMDX } from '@/lib/mdx'
 import { Section } from '@/components/section'
 
@@ -30,16 +31,16 @@ export default async function HomePage() {
         }}
       />
       <section className="relative min-h-[60vh] flex items-center overflow-hidden mt-2 md:mt-3">
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-50 to-white dark:from-zinc-900/60 dark:to-zinc-950" />
-        <div className="absolute inset-0 bg-[radial-gradient(55%_50%_at_50%_0%,_var(--tw-gradient-stops))] from-primary/25 via-transparent to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-b from-[var(--color-bg-section)] to-[var(--color-bg-default)] dark:from-zinc-900/60 dark:to-zinc-950" />
+        <div className="absolute inset-0 bg-[radial-gradient(55%_50%_at_50%_0%,_var(--tw-gradient-stops))] from-[color-mix(in_oklab,_var(--color-accent-brand)_25%,_transparent)] via-transparent to-transparent" />
         <div className="container-max relative">
           <div className="glass rounded-2xl p-4 md:p-12">
-            <h1 className="text-2xl md:text-5xl font-semibold tracking-tight">Transformación digital para PyMEs: integración, ERP modular y automatización con IA.</h1>
-            <p className="mt-3 text-zinc-600 dark:text-zinc-300 max-w-2xl text-[15px] md:text-base">Integramos tus sistemas, automatizamos procesos y construimos ERP modular y apps internas. MVP en 30–90 días.</p>
+            <h1 className="text-2xl md:text-5xl font-semibold tracking-tight font-[var(--font-space-grotesk,_inherit)]" style={{ lineHeight: 1.2 }}>Transformación digital para PyMEs: integración, ERP modular y automatización con IA.</h1>
+            <p className="mt-3 text-[color:var(--color-fg-muted)] dark:text-zinc-300 max-w-2xl text-[15px] md:text-base">Integramos tus sistemas, automatizamos procesos y construimos ERP modular y apps internas. MVP en 30–90 días.</p>
             <div className="mt-4 md:mt-6 flex flex-wrap items-center gap-2 md:gap-3">
-              <Link href="/contacto" className="inline-flex items-center justify-center rounded-xl bg-primary px-4 py-2 text-white">Agenda diagnóstico</Link>
-              <Link href="/servicios" className="inline-flex items-center justify-center rounded-xl border border-zinc-900/10 px-4 py-2 text-zinc-700 dark:border-zinc-50/10 dark:text-zinc-200">Ver demo</Link>
-              <Link href="/casos" className="inline-flex items-center justify-center rounded-xl border border-zinc-900/10 px-4 py-2 text-zinc-700 dark:border-zinc-50/10 dark:text-zinc-200">Casos</Link>
+              <Button asChild size="lg"><Link href="/contacto">Agenda diagnóstico</Link></Button>
+              <Button asChild variant="outline" size="lg"><Link href="/servicios">Ver demo</Link></Button>
+              <Button asChild variant="outline" size="lg"><Link href="/casos">Casos</Link></Button>
             </div>
           </div>
         </div>

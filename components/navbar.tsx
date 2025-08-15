@@ -36,7 +36,7 @@ export function Navbar() {
     <header className="fixed top-0 inset-x-0 z-50">
       <div className="container-max">
         <div
-          className={`relative rounded-2xl px-4 py-3 flex items-center justify-between border transition-colors ${
+          className={`relative rounded-2xl px-4 py-3 md:px-4 md:py-6 flex items-center justify-between border transition-colors ${
             scrolled
               ? 'bg-white/70 border-zinc-900/10 text-zinc-900 backdrop-blur-xl dark:bg-zinc-900/70 dark:border-zinc-50/10 dark:text-zinc-100'
               : 'bg-white/50 border-zinc-900/10 text-zinc-900 backdrop-blur-xl dark:bg-zinc-900/50 dark:border-zinc-50/10 dark:text-zinc-100'
@@ -61,7 +61,7 @@ export function Navbar() {
           </nav>
           <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
-            <Button asChild>
+            <Button asChild size="md" variant="primary">
               <Link href="/contacto">Agenda diagnóstico</Link>
             </Button>
           </div>

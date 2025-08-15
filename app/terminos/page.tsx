@@ -37,7 +37,7 @@ export default function Page() {
             <h2>10. Ley aplicable</h2>
             <p>Estos términos se rigen por las leyes del país de constitución de LX3, salvo acuerdo distinto en el contrato particular.</p>
             <h2>11. Contacto</h2>
-            <p>Para consultas legales: hola@lx3.ai</p>
+            <p>Para consultas legales: contacto@lx3.ai</p>
           </div>
         </div>
       </div>
